@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Jornada Técnica Mapei & Bariperfil Málaga | 4 de Noviembre</title>
+  
+  <!-- Fuente Google: Plus Jakarta Sans para máxima nitidez técnica -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            mapei: {
+              50: '#edf6fc',
+              100: '#d7ecf9',
+              200: '#b4dbf4',
+              300: '#7fc1ec',
+              400: '#42a3e2',
+              500: '#1988d1',
+              600: '#0066B2', // Color oficial corporativo MAPEI
+              700: '#065392',
+              800: '#094779',
+              900: '#0c3b65',
+              950: '#082543',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Evitar que iOS haga zoom automático al tocar inputs */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+    
+    /* Optimizaciones para impresión como cartel físico A4 */
+    @media print {
+      body { background-color: white !important; color: black !important; padding: 0 !important; }
+      .no-print { display: none !important; }
+      .poster-container { box-shadow: none !important; border: 2px solid #0066B2 !important; border-radius: 12px !important; }
+      .print-break-inside-avoid { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-mapei-600 selection:text-white overflow-x-hidden">
+
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main class="max-w-4xl mx-auto px-3.5 sm:px-6 py-4 sm:py-10 flex-grow w-full">
+    
+    <!-- ================= CONTENEDOR TIPO CARTEL DE PROGRAMA ================= -->
+    <div class="poster-container bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200/90 overflow-hidden mb-6 sm:mb-8">
+      
+      <!-- CABECERA CO-BRANDING CON LOGOS OFICIALES -->
+      <div class="bg-gradient-to-br from-mapei-900 via-mapei-800 to-mapei-950 p-5 sm:p-8 text-white relative overflow-hidden">
+        
+        <!-- Destello de fondo sutil -->
+        <div class="absolute -right-10 -top-10 w-56 h-56 bg-mapei-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Fila de Logos: MAPEI y BARIPERFIL optimizados para móvil -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 relative z-10 border-b border-white/15 pb-5 sm:pb-6 mb-5 sm:mb-6">
+          
+          <!-- LOGO OFICIAL MAPEI (Vectores exactos: Matraz + Cubos + Tipografía Oficial Itálica) -->
+          <div class="flex items-center justify-center py-1">
+            <svg class="h-9 sm:h-12 w-auto fill-current text-white max-w-[210px] sm:max-w-[260px]" viewBox="6 76 178 43" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#ffffff">
+                <!-- Matraz y silueta -->
+                <path d="M47.316 96.378l-7.249-15.456H21.695c.292.875 1.25 2.291.667 3.375l-5.707 12.081-1.042 2.208c-.833 2.208-1.833 3.416-1.833 5.707 0 5 4.291 7.541 7.916 7.541H41.9c3.958 0 7.957-2.833 7.957-7.541 0-1.957-.625-3.832-1.417-5.582l-1.124-2.333zm-35.994 0l5.791-12.331c.375-.75.708-1.75-.208-3.125l-2.166-3.416c-.625-.625-.583-1.5.333-1.5h27.912l8.749 18.622c.25.583.542 1.125.833 1.75 1.167 2.458 2.375 5.166 2.541 7.915.583 8.624-7.707 12.457-13.206 12.457H21.737c-7.332 0-13.706-5.458-13.206-12.457.125-1.208.292-2.457.875-3.666.292-.75.542-1.291.875-1.999l1.041-2.25z"/>
+                <!-- Cubos isométricos Mapei -->
+                <path d="M22.903 90.212v1.083l1.875-1.083-1.875-1.083v1.083zm7.666 18.581l-1.791-1.042v2.083l1.874-1-.083-.041zm13.664-14.248l-2.041-1.125v2.25l2.041-1.125zm-2.083-2.083l2.708 1.5V101.461l-2.708 1.708v4.166l-2.583 1.458-4.499 2.541-3.625-2.041-2.625 1.416-3.417-1.916-3.333-1.833v-3l-3.708-2.166V93.878l3.749-2.125v-2.959l6.791-3.916 2.583 1.5 3.625-2.042 7.082 4-.04 4.126zm-.791 2.083v-5.75l-6.249-3.583-6.332 3.666v3.5l-3.042-1.75-6.541 3.666v7.041l6.499 3.791 3.125-1.792v3.5l3.375 1.958 2.916 1.666 2.875-1.666 3.375-1.917v-7.332l-2.958-1.666 2.958-1.792v-1.54h-.001z"/>
+                <!-- Letras M-A-P-E-I oficiales -->
+                <path d="M31.235 94.545l.667-.375-2.625-1.458v-3.583l1.917 1.083 3.874 2.167V99.794l2.791-1.666 3.083 1.791-5.999 3.375-6.165-3.5v2.875l-3.25 1.874v-6.79l5.707-3.208zM111.68 99.669l-.25-3.333-1.623 3.333-1.668 3.333h3.834l-.293-3.333zm-10.248 0l10.707-18.997h7.166l.5 18.997.25 12.165h-7.625l-.25-3.166h-6.873l-1.625 3.166h-9.124l6.874-12.165zM138.719 92.712c1.123-5.332.666-7.166-1.5-7.374h-1l-1.918 7.374-1.916 7.374h.959c1.666 0 2.416-.917 3.166-1.958.75-1 1.666-3.041 2.209-5.416zm-12.666 0l3.209-12.04h11.83c1.25 0 2.875.958 3.959 2.25 2.248 2.458 2.207 6.416 1.707 9.79-.041.292-.084.583-.125.833-.875 4.166-2.416 7.832-5.416 10.498-1.291 1.042-3.082 1.959-5.123 1.959h-5.25l-1.582 5.832h-8.291l5.082-19.122zM70.937 111.875h-8.082l8.166-31.161h9.207l1.749 15.247 9.748-15.247h9.375l-8.25 31.12h-8.04l3.333-14.331-7.707 14.331h-5.041l-.625-14.331-3.833 14.372zM159.465 111.834h-16.414l8.207-31.162h16.289l-2.041 7.999h-8.541l-1.125 3.874h8.707l-2.041 7.541h-8.582l-.916 3.749h8.539l-2.082 7.999zM161.756 111.834l8.373-31.162h7.916l-8.041 31.162h-8.248zM181.17 82.63v-.625h.416c.25 0 .541 0 .541.292s-.166.333-.416.333h-.541zm0 .5h.291l.625 1.125h.75l-.75-1.167c.375-.042.707-.208.707-.75 0-.625-.457-.833-1.166-.833h-1.082v2.749h.625V83.13zm3.082-.25c0-1.583-1.25-2.541-2.666-2.541-1.375 0-2.625.958-2.625 2.541 0 1.625 1.25 2.583 2.625 2.583 1.416 0 2.666-.958 2.666-2.583zm-.791 0c0 1.208-.834 2-1.875 2v-.042c-1.041.042-1.875-.75-1.875-1.958 0-1.166.834-1.916 1.875-1.916s1.875.75 1.875 1.916z"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Separador estilizado -->
+          <div class="hidden sm:block text-white/30 font-light text-2xl">|</div>
+
+          <!-- LOGO BARIPERFIL MÁLAGA (Fiel al archivo cargado) -->
+          <div class="flex items-center gap-2.5 bg-black/35 px-4 py-2 rounded-xl sm:rounded-2xl border border-white/10">
+            <svg class="h-7 sm:h-9 w-auto" viewBox="0 0 540 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Círculo Bariperfil -->
+              <circle cx="45" cy="45" r="42" fill="#ffffff"/>
+              <!-- Ranuras diagonales -->
+              <path d="M10 27 L80 18 L78 28 L8 36 Z" fill="#082543"/>
+              <path d="M6 82 L72 16 L84 28 L18 94 Z" fill="#082543"/>
+              <!-- Tipografía Bariperfil -->
+              <text x="105" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="58" letter-spacing="-0.5" fill="#ffffff">BARIPERFIL</text>
+              <circle cx="505" cy="28" r="6" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+              <text x="502.5" y="32" font-family="Arial, sans-serif" font-weight="bold" font-size="8.5" fill="#ffffff">R</text>
+            </svg>
+            <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-mapei-200 border-l border-white/20 pl-2.5 whitespace-nowrap">Málaga</span>
+          </div>
+
+        </div>
+
+        <!-- TÍTULO PRINCIPAL (Responsive y legible) -->
+        <div class="text-left">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-mapei-600 text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+            Jornada Técnica Profesional
+          </div>
+          <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white mb-2.5">
+            Tratamiento y Preparación de Soportes
+          </h1>
+          <p class="text-xs sm:text-base text-mapei-100 font-medium leading-relaxed max-w-2xl">
+            Diagnóstico, control de humedad y soluciones de barrera técnica para profesionales e instaladores.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- DATOS CLAVE: FECHA, HORA Y LUGAR (Adaptado a móviles) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-mapei-50/70 border-b border-slate-200">
+        
+        <!-- Fecha -->
+        <div class="p-4 sm:p-5 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-mapei-600 text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md shadow-mapei-600/30">
+            📅
+          </div>
+          <div>
+            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-mapei-800">Fecha</span>
+            <p class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">4 de Noviembre</p>
+            <p class="text-xs text-slate-500 font-medium">Jornada técnica presencial</p>
+          </div>
+        </div>
+
+        <!-- Hora -->
+        <div class="p-4 sm:p-5 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-mapei-600 text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md shadow-mapei-600/30">
+            ⏰
+          </div>
+          <div>
+            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-mapei-800">Horario</span>
+            <p class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">09:00 h</p>
+            <p class="text-xs text-slate-500 font-medium">Apertura y sesión técnica</p>
+          </div>
+        </div>
+
+        <!-- Lugar con botón Google Maps táctil -->
+        <div class="p-4 sm:p-5 flex items-center justify-between gap-2.5">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-mapei-600 text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md shadow-mapei-600/30">
+              📍
+            </div>
+            <div class="truncate">
+              <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-mapei-800">Lugar</span>
+              <p class="text-xs sm:text-sm font-extrabold text-slate-900 truncate leading-tight">Bariperfil Málaga</p>
+              <p class="text-[11px] sm:text-xs text-slate-600 truncate font-medium">Av. José Ortega y Gasset, 288</p>
+            </div>
+          </div>
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=Bariperfil+M%C3%A1laga+Av.+de+Jos%C3%A9+Ortega+y+Gasset+288+29006+M%C3%A1laga" 
+            target="_blank" 
+            class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:border-mapei-600 text-mapei-700 font-bold text-xs flex items-center gap-1.5 shadow-2xs flex-shrink-0 active:scale-95 transition"
+            title="Cómo llegar"
+          >
+            <span>Mapa</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- ORDEN DEL DÍA / PROGRAMA TÉCNICO -->
+      <div class="p-5 sm:p-8 bg-white">
+        
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+              <span class="w-2 h-5 sm:h-6 rounded bg-mapei-600"></span>
+              Orden del Día
+            </h2>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Contenido técnico de la jornada</p>
+          </div>
+        </div>
+
+        <!-- 4 Bloques Técnicos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          
+          <!-- Bloque 1 -->
+          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs print-break-inside-avoid">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                01
+              </div>
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                  Valorar e identificar soportes
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
+                  Tipologías de base: soleras de hormigón, recrecidos de mortero, soportes cerámicos y diagnosis previa de resistencia.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloque 2 -->
+          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs print-break-inside-avoid">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                02
+              </div>
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                  Reparar patologías en soportes
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
+                  Tratamiento de fisuras activas, consolidación de soleras disgregadas, regularización y morteros autonivelantes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloque 3 -->
+          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs print-break-inside-avoid">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                03
+              </div>
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                  Comprobar humedad y límites permitidos
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
+                  Métodos de medición (carburo de calcio vs higrómetro digital). Tolerancias y porcentajes máximos admisibles según normativa.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloque 4 -->
+          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs print-break-inside-avoid">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                04
+              </div>
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                  Uso y sistemas de barrera
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
+                  Barreras de vapor epoxi/poliuretano, bloqueo de remonte capilar, imprimaciones técnicas y puentes de unión Mapei.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- EQUIPO TÉCNICO Y PONENTES -->
+      <div class="p-5 sm:p-8 bg-slate-50 border-t border-slate-200">
+        <h3 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 sm:mb-4">
+          Ponentes y Contacto
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          
+          <!-- Ponente Mapei 1 -->
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2 h-2 rounded-full bg-mapei-600"></span>
+              <p class="text-xs font-extrabold text-slate-900">David Pérez</p>
+            </div>
+            <p class="text-[11px] font-semibold text-mapei-700">Product Specialist · MAPEI</p>
+            <div class="mt-2 text-xs text-slate-600 space-y-1">
+              <a href="tel:670275741" class="block font-semibold text-slate-700 hover:text-mapei-600">📞 670 275 741</a>
+              <a href="mailto:davidperez@mapei.es" class="block text-[11px] text-slate-500 hover:text-mapei-600 truncate">✉️ davidperez@mapei.es</a>
+            </div>
+          </div>
+
+          <!-- Ponente Mapei 2 -->
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2 h-2 rounded-full bg-mapei-600"></span>
+              <p class="text-xs font-extrabold text-slate-900">J. Antonio Sánchez</p>
+            </div>
+            <p class="text-[11px] font-semibold text-mapei-700">Agente Comercial · MAPEI</p>
+            <p class="text-xs text-slate-500 mt-2">Atención técnica y comercial</p>
+          </div>
+
+          <!-- Contacto Bariperfil -->
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2 h-2 rounded-full bg-slate-900"></span>
+              <p class="text-xs font-extrabold text-slate-900">Millán Álvarez</p>
+            </div>
+            <p class="text-[11px] font-semibold text-slate-700">Delegado Comercial · BARIPERFIL</p>
+            <div class="mt-2 text-xs text-slate-600 space-y-1">
+              <a href="tel:678054733" class="block font-semibold text-slate-700 hover:text-slate-900">📞 678 054 733</a>
+              <span class="block text-[11px] text-slate-400">Almacén: 952 00 97 43</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= CAJA DE REGISTRO INMEDIATO (SIN REGISTRO / CERO FRICCIÓN) ================= -->
+    <div id="registro-seccion" class="max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-mapei-600 shadow-xl shadow-mapei-600/10 no-print">
+      
+      <!-- Estado Inicial -->
+      <div id="rsvp-card">
+        <div class="text-center mb-5 sm:mb-6">
+          <span class="inline-block px-3 py-1 rounded-full bg-mapei-50 text-mapei-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+            Inscripción Rápida Sin Registro
+          </span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+            Reserva tu Plaza para el 4 de Noviembre
+          </h2>
+          <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+            Acceso gratuito para profesionales en las instalaciones de Bariperfil Málaga.
+          </p>
+        </div>
+
+        <!-- Formulario Ultra Rápido -->
+        <form id="rsvp-form" onsubmit="handleRegistration(event)" class="space-y-3.5">
+          <div>
+            <label for="attendee-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Nombre y Apellidos o Empresa *
+            </label>
+            <input 
+              type="text" 
+              id="attendee-name" 
+              required
+              placeholder="Ej. Manuel García - Pavimentos Málaga" 
+              class="w-full px-3.5 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-mapei-600 focus:border-mapei-600 text-sm transition bg-white"
+            >
+          </div>
+
+          <div>
+            <label for="attendee-contact" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Teléfono o Correo de contacto *
+            </label>
+            <input 
+              type="text" 
+              id="attendee-contact" 
+              required
+              placeholder="Ej. 600 123 456 o info@tuempresa.es" 
+              class="w-full px-3.5 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-mapei-600 focus:border-mapei-600 text-sm transition bg-white"
+            >
+          </div>
+
+          <button 
+            type="submit" 
+            class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition-all duration-150 shadow-lg shadow-mapei-600/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            <span>Confirmar Asistencia</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Separador -->
+        <div class="relative my-5">
+          <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+          <div class="relative flex justify-center text-[11px] uppercase"><span class="bg-white px-2.5 text-slate-400 font-semibold">o confirma por WhatsApp en 1 clic</span></div>
+        </div>
+
+        <!-- Botones directos a WhatsApp para David Pérez o Millán Álvarez -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <a 
+            href="https://wa.me/34670275741?text=Hola%20David,%20confirmo%20mi%20asistencia%20a%20la%20Jornada%20T%C3%A9cnica%20Mapei%20en%20Bariperfil%20M%C3%A1laga%20el%204%20de%20noviembre%20a%20las%209:00." 
+            target="_blank"
+            class="py-3 px-3 rounded-xl border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 font-semibold text-xs flex items-center justify-center gap-2 transition min-h-[44px] touch-manipulation"
+          >
+            <svg class="w-4 h-4 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>Avisar a David (Mapei)</span>
+          </a>
+
+          <a 
+            href="https://wa.me/34678054733?text=Hola%20Mill%C3%A1n,%20confirmo%20mi%20asistencia%20a%20la%20Jornada%20T%C3%A9cnica%20Mapei%20en%20Bariperfil%20M%C3%A1laga%20el%204%20de%20noviembre." 
+            target="_blank"
+            class="py-3 px-3 rounded-xl border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 font-semibold text-xs flex items-center justify-center gap-2 transition min-h-[44px] touch-manipulation"
+          >
+            <svg class="w-4 h-4 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>Avisar a Millán (Bariperfil)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Estado de Éxito / Confirmado -->
+      <div id="rsvp-success" class="hidden text-center py-3">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl sm:text-2xl font-bold">
+          ✓
+        </div>
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-1">¡Plaza Reservada con Éxito!</h3>
+        <p class="text-xs text-slate-600 mb-4 max-w-sm mx-auto">
+          Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en las instalaciones de Bariperfil Málaga.
+        </p>
+
+        <!-- Añadir al Calendario con la fecha exacta -->
+        <div class="p-3.5 bg-mapei-50/80 rounded-xl sm:rounded-2xl border border-mapei-200 text-left mb-4">
+          <p class="text-[10px] sm:text-[11px] font-bold text-mapei-900 uppercase tracking-wider mb-2">
+            Añadir a tu agenda profesional:
+          </p>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <a 
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jornada+T%C3%A9cnica+Mapei+-+Bariperfil+M%C3%A1laga&dates=20261104T080000Z/20261104T103000Z&details=Jornada+t%C3%A9cnica+sobre+soportes,+patolog%C3%ADas,+humedad+y+barreras.+Ponente+Mapei:+David+P%C3%A9rez+(670275741)&location=Bariperfil+M%C3%A1laga,+Av.+de+Jos%C3%A9+Ortega+y+Gasset,+288,+29006+M%C3%A1laga" 
+              target="_blank"
+              class="flex-1 text-center py-2.5 px-3 rounded-lg bg-white border border-slate-300 hover:border-mapei-600 text-xs font-bold text-slate-700 transition"
+            >
+              + Google Calendar
+            </a>
+            <button 
+              onclick="downloadICS()"
+              class="flex-1 text-center py-2.5 px-3 rounded-lg bg-white border border-slate-300 hover:border-mapei-600 text-xs font-bold text-slate-700 transition cursor-pointer"
+            >
+              + Outlook / iPhone (.ics)
+            </button>
+          </div>
+        </div>
+
+        <button 
+          onclick="resetRegistration()" 
+          class="text-xs text-mapei-700 hover:underline font-bold py-2"
+        >
+          ← Inscribir a otro asistente
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= PIE DE PÁGINA ================= -->
+  <footer class="border-t border-slate-200 bg-white py-5 sm:py-6 no-print">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
+      <p>© 2026 MAPEI Spain S.A. & Bariperfil Málaga.</p>
+      <div class="flex items-center gap-3 font-semibold text-slate-600">
+        <a href="https://www.mapei.com/es" target="_blank" class="hover:text-mapei-600">mapei.es</a>
+        <span>·</span>
+        <a href="https://bariperfil.com" target="_blank" class="hover:text-mapei-600">bariperfil.com</a>
+        <span>·</span>
+        <button onclick="window.print()" class="text-mapei-700 hover:underline cursor-pointer">Imprimir Cartel</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= LÓGICA DE INTERACCIÓN ================= -->
+  <script>
+    function handleRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('attendee-name').value;
+      const contact = document.getElementById('attendee-contact').value;
+
+      console.log("Nuevo asistente registrado:", {
+        evento: "Jornada Técnica Mapei - Bariperfil Málaga",
+        fecha: "4 de Noviembre - 09:00",
+        asistente: name,
+        contacto: contact,
+        timestamp: new Date().toISOString()
+      });
+
+      // Transición visual instantánea
+      document.getElementById('rsvp-card').classList.add('hidden');
+      document.getElementById('rsvp-success').classList.remove('hidden');
+    }
+
+    function resetRegistration() {
+      document.getElementById('rsvp-form').reset();
+      document.getElementById('rsvp-success').classList.add('hidden');
+      document.getElementById('rsvp-card').classList.remove('hidden');
+    }
+
+    // Generador dinámico de archivo .ics para Outlook/Apple Calendar
+    function downloadICS() {
+      const icsData = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Mapei//Jornada Tecnica Bariperfil//ES",
+        "BEGIN:VEVENT",
+        "SUMMARY:Jornada Técnica Mapei - Bariperfil Málaga",
+        "DESCRIPTION:Orden del día: Soportes, Patologías, Humedad y Barreras.\\nPonente Mapei: David Pérez (670 275 741)\\nBariperfil: Millán Álvarez (678 054 733)",
+        "LOCATION:Bariperfil Málaga, Av. de José Ortega y Gasset, 288, 29006 Málaga",
+        "DTSTART:20261104T080000Z",
+        "DTEND:20261104T103000Z",
+        "STATUS:CONFIRMED",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\\r\\n");
+
+      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute("download", "Jornada-Mapei-Bariperfil.ics");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
