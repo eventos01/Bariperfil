@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estadísticas de Actividad | Jornada Técnica Mapei & Bariperfil</title>
-  
+
   <!-- Fuente Google Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -35,14 +37,17 @@
     }
   </script>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-mapei-600 selection:text-white">
+
+<body
+  class="bg-slate-100 text-slate-800 font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-mapei-600 selection:text-white">
 
   <!-- ================= PANTALLA 1: BLOQUEO CON CLAVE (4662) ================= -->
   <div id="auth-screen" class="min-h-screen flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl text-center">
-      
+
       <!-- Icono candado -->
-      <div class="w-16 h-16 rounded-2xl bg-mapei-50 border border-mapei-100 text-mapei-600 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
+      <div
+        class="w-16 h-16 rounded-2xl bg-mapei-50 border border-mapei-100 text-mapei-600 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
         🔒
       </div>
 
@@ -54,24 +59,15 @@
           <label for="access-pin" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
             Introduce la Clave de Seguridad
           </label>
-          <input 
-            type="password" 
-            id="access-pin" 
-            maxlength="10"
-            required
-            placeholder="••••" 
-            autofocus
-            class="w-full text-center text-2xl tracking-widest font-mono py-3 px-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-mapei-600 transition"
-          >
+          <input type="password" id="access-pin" maxlength="10" required placeholder="••••" autofocus
+            class="w-full text-center text-2xl tracking-widest font-mono py-3 px-4 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-mapei-600 transition">
           <p id="error-msg" class="text-xs font-semibold text-rose-600 mt-2 hidden">
             Clave incorrecta. Inténtalo de nuevo.
           </p>
         </div>
 
-        <button 
-          type="submit" 
-          class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm shadow-lg shadow-mapei-600/30 transition cursor-pointer"
-        >
+        <button type="submit"
+          class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm shadow-lg shadow-mapei-600/30 transition cursor-pointer">
           Acceder al Panel
         </button>
       </form>
@@ -84,7 +80,7 @@
 
   <!-- ================= PANTALLA 2: DASHBOARD DE ESTADÍSTICAS ================= -->
   <div id="dashboard-screen" class="hidden min-h-screen flex flex-col justify-between">
-    
+
     <!-- Barra Superior -->
     <header class="bg-mapei-900 text-white border-b border-mapei-950 sticky top-0 z-40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-2">
@@ -100,28 +96,22 @@
 
         <!-- Acciones: Actualizar, Restaurar y Salir -->
         <div class="flex items-center gap-1.5 sm:gap-2">
-          <button 
-            onclick="loadAllStats()" 
+          <button onclick="loadAllStats()"
             class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-mapei-800 hover:bg-mapei-700 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
-            title="Refrescar datos de la nube"
-          >
+            title="Refrescar datos de la nube">
             <span>🔄</span>
             <span class="hidden sm:inline">Actualizar</span>
           </button>
 
-          <button 
-            onclick="restoreAllHistoricalStats()" 
+          <button onclick="restoreAllHistoricalStats()"
             class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 transition cursor-pointer shadow-xs"
-            title="Recuperar todos los datos históricos acumulados"
-          >
+            title="Recuperar todos los datos históricos acumulados">
             <span>📥</span>
             <span class="hidden sm:inline">Recuperar Histórico</span>
           </button>
 
-          <button 
-            onclick="logout()" 
-            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-semibold transition cursor-pointer"
-          >
+          <button onclick="logout()"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-semibold transition cursor-pointer">
             Salir
           </button>
         </div>
@@ -130,9 +120,10 @@
 
     <!-- Contenido Principal del Dashboard -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-grow w-full">
-      
+
       <!-- Aviso de Privacidad y Metodología -->
-      <div class="mb-6 p-4 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+      <div
+        class="mb-6 p-4 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
         <div class="flex items-center gap-3">
           <span class="text-emerald-500 text-xl">🛡️</span>
           <div>
@@ -140,14 +131,15 @@
             <p class="text-[11px] text-slate-500">Lectura directa en tiempo real de la actividad del evento.</p>
           </div>
         </div>
-        <div id="status-indicator" class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap">
+        <div id="status-indicator"
+          class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap">
           🟢 Datos sincronizados
         </div>
       </div>
 
       <!-- TARJETAS DE MÉTRICAS PRINCIPALES -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 mb-8">
-        
+
         <!-- Métrica 1: Visitas Únicas -->
         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <div>
@@ -163,7 +155,8 @@
         </div>
 
         <!-- Métrica 2: Confirmaciones WhatsApp -->
-        <div class="bg-white p-4 rounded-2xl border border-emerald-200 bg-emerald-50/20 shadow-sm flex flex-col justify-between">
+        <div
+          class="bg-white p-4 rounded-2xl border border-emerald-200 bg-emerald-50/20 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-slate-400 mb-2">
               <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Vía WhatsApp</span>
@@ -177,7 +170,8 @@
         </div>
 
         <!-- Métrica 3: Confirmaciones Email -->
-        <div class="bg-white p-4 rounded-2xl border border-mapei-200 bg-mapei-50/20 shadow-sm flex flex-col justify-between">
+        <div
+          class="bg-white p-4 rounded-2xl border border-mapei-200 bg-mapei-50/20 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-slate-400 mb-2">
               <span class="text-[11px] font-bold uppercase tracking-wider text-mapei-800">Vía Email</span>
@@ -205,7 +199,8 @@
         </div>
 
         <!-- Métrica 5: Contactos / Llamadas -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
+        <div
+          class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
           <div>
             <div class="flex items-center justify-between text-slate-400 mb-2">
               <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600">Llamadas</span>
@@ -228,7 +223,7 @@
         </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          
+
           <!-- Tasa de Interacción -->
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
             <div class="flex items-center justify-between mb-2">
@@ -236,7 +231,8 @@
               <span id="stat-conversion-rate" class="text-lg font-extrabold text-mapei-700">0%</span>
             </div>
             <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-              <div id="stat-conversion-bar" class="bg-mapei-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+              <div id="stat-conversion-bar" class="bg-mapei-600 h-3 rounded-full transition-all duration-500"
+                style="width: 0%"></div>
             </div>
             <p class="text-[11px] text-slate-500 mt-2">
               Porcentaje de visitantes únicos que han completado su confirmación (Email o WhatsApp).
@@ -265,7 +261,8 @@
 
       <!-- Enlace de vuelta a la página principal -->
       <div class="text-center">
-        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-mapei-600 hover:text-mapei-800 hover:underline">
+        <a href="index.html"
+          class="inline-flex items-center gap-2 text-xs font-bold text-mapei-600 hover:text-mapei-800 hover:underline">
           <span>← Volver a la web del evento</span>
         </a>
       </div>
@@ -292,9 +289,9 @@
     // Si deseas fijar o recuperar números específicos anteriores, cámbialos aquí:
     // =========================================================================
     const ESTADISTICAS_MANUALES = {
-      visitas: 0,          // <-- Pon aquí tus visitas anteriores
-      whatsapp_clicks: 0,  // <-- Pon aquí tus confirmaciones por WhatsApp
-      email_confirms: 0,   // <-- Pon aquí tus confirmaciones por Email
+      visitas: 7,          // <-- Pon aquí tus visitas anteriores
+      whatsapp_clicks: 3,  // <-- Pon aquí tus confirmaciones por WhatsApp
+      email_confirms: 2,   // <-- Pon aquí tus confirmaciones por Email
       maps_clicks: 0,      // <-- Pon aquí tus clics en Maps
       call_clicks: 0       // <-- Pon aquí tus llamadas
     };
@@ -350,7 +347,7 @@
       let stats = {};
 
       try {
-        const promises = endpoints.map(ep => 
+        const promises = endpoints.map(ep =>
           fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${ep}`, { mode: 'cors' })
             .then(res => res.ok ? res.json() : null)
             .catch(() => null)
@@ -365,7 +362,7 @@
           }
           const manualBase = ESTADISTICAS_MANUALES[ep] || 0;
           const localCount = local[ep] || 0;
-          
+
           // Se toma el valor real más alto entre la nube, el almacenamiento local y los valores manuales
           stats[ep] = Math.max(countFromCloud, localCount, manualBase);
         });
@@ -422,4 +419,5 @@
     }
   </script>
 </body>
+
 </html>
