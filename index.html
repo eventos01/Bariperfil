@@ -381,51 +381,38 @@
             >
           </div>
 
+          <!-- Botón Principal con texto ajustado -->
           <button 
             type="submit" 
             class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition-all duration-150 shadow-lg shadow-mapei-600/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation min-h-[48px]"
           >
-            <span>Confirmar Asistencia</span>
+            <span>Confirmar Asistencia por Email</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
             </svg>
           </button>
         </form>
 
-        <!-- Separador -->
-        <div class="relative my-5">
+        <!-- Separador con frase actualizada -->
+        <div class="relative my-6">
           <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
-          <div class="relative flex justify-center text-[11px] uppercase"><span class="bg-white px-2.5 text-slate-400 font-semibold">o elige cómo confirmar</span></div>
+          <div class="relative flex justify-center text-xs">
+            <span class="bg-white px-3 text-slate-500 font-semibold">Si prefieres lo puedes hacer por whatsapp</span>
+          </div>
         </div>
 
-        <!-- Botones de elección: Confirmar por WhatsApp o por Email -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          
-          <!-- Confirmar por WhatsApp (al teléfono de Millán Álvarez: 678 054 733) -->
-          <a 
-            href="https://wa.me/34678054733?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20Jornada%20T%C3%A9cnica%20Mapei%20en%20Bariperfil%20M%C3%A1laga%20el%204%20de%20noviembre%20a%20las%209:00." 
-            target="_blank"
-            onclick="trackEvent('whatsapp_clicks')"
-            class="py-3 px-3.5 rounded-xl border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 font-bold text-xs flex items-center justify-center gap-2 transition min-h-[48px] touch-manipulation shadow-2xs"
+        <!-- Botón único y dinámico de WhatsApp (elimina el botón redundante de email) -->
+        <div>
+          <button 
+            type="button"
+            onclick="sendWhatsAppConfirmation()"
+            class="w-full py-3.5 px-4 rounded-xl border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 font-bold text-sm flex items-center justify-center gap-2.5 transition min-h-[48px] touch-manipulation shadow-2xs cursor-pointer"
           >
-            <svg class="w-4 h-4 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
             </svg>
             <span>Confirmar por WhatsApp</span>
-          </a>
-
-          <!-- Confirmar por Email (directo a malaga@bariperfil.es) -->
-          <a 
-            href="mailto:malaga@bariperfil.es?subject=Confirmaci%C3%B3n%20de%20Asistencia%20-%20Jornada%20T%C3%A9cnica%20Mapei%20en%20Bariperfil%20(4%20Nov)&body=Hola,%20confirmo%20mi%20asistencia%20a%20la%20Jornada%20T%C3%A9cnica%20del%204%20de%20noviembre%20a%20las%209:00%20h%20en%20Bariperfil%20M%C3%A1laga." 
-            onclick="trackEvent('email_confirms')"
-            class="py-3 px-3.5 rounded-xl border border-mapei-300 bg-mapei-50 hover:bg-mapei-100 active:bg-mapei-200 text-mapei-900 font-bold text-xs flex items-center justify-center gap-2 transition min-h-[48px] touch-manipulation shadow-2xs"
-          >
-            <svg class="w-4 h-4 text-mapei-700 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-            </svg>
-            <span>Confirmar por Email</span>
-          </a>
-
+          </button>
         </div>
       </div>
 
@@ -474,7 +461,7 @@
 
   </main>
 
-  <!-- ================= PIE DE PÁGINA (SIN BOTÓN IMPRIMIR CARTEL) ================= -->
+  <!-- ================= PIE DE PÁGINA ================= -->
   <footer class="border-t border-slate-200 bg-white py-5 sm:py-6">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
       <p>© 2026 MAPEI Spain S.A. & Bariperfil Málaga.</p>
@@ -541,6 +528,27 @@
       // Mostrar pantalla de confirmación y calendario
       document.getElementById('rsvp-card').classList.add('hidden');
       document.getElementById('rsvp-success').classList.remove('hidden');
+    }
+
+    // Envío dinámico por WhatsApp incorporando nombre y contacto si han sido rellenados
+    function sendWhatsAppConfirmation() {
+      const nameInput = document.getElementById('attendee-name');
+      const contactInput = document.getElementById('attendee-contact');
+
+      const name = nameInput ? nameInput.value.trim() : "";
+      const contact = contactInput ? contactInput.value.trim() : "";
+
+      trackEvent('whatsapp_clicks');
+
+      let message = "Hola, confirmo mi asistencia a la Jornada Técnica Mapei en Bariperfil Málaga el 4 de noviembre a las 9:00 h.";
+      if (name || contact) {
+        message += "\n\n";
+        if (name) message += `• Asistente / Empresa: ${name}\n`;
+        if (contact) message += `• Contacto: ${contact}\n`;
+      }
+
+      const waUrl = `https://wa.me/34678054733?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
     }
 
     function resetRegistration() {
