@@ -98,24 +98,24 @@
           </div>
         </div>
 
-        <!-- Acciones: Actualizar, Reiniciar y Salir -->
+        <!-- Acciones: Actualizar, Restaurar y Salir -->
         <div class="flex items-center gap-1.5 sm:gap-2">
           <button 
             onclick="loadAllStats()" 
             class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-mapei-800 hover:bg-mapei-700 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
-            title="Refrescar datos"
+            title="Refrescar datos de la nube"
           >
             <span>🔄</span>
             <span class="hidden sm:inline">Actualizar</span>
           </button>
 
           <button 
-            onclick="resetCounters()" 
-            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-amber-600/90 hover:bg-amber-600 text-white text-xs font-semibold flex items-center gap-1 transition cursor-pointer shadow-xs"
-            title="Poner todos los contadores a cero"
+            onclick="restoreAllHistoricalStats()" 
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 transition cursor-pointer shadow-xs"
+            title="Recuperar todos los datos históricos acumulados"
           >
-            <span>🗑️</span>
-            <span class="hidden sm:inline">Reiniciar</span>
+            <span>📥</span>
+            <span class="hidden sm:inline">Recuperar Histórico</span>
           </button>
 
           <button 
@@ -136,8 +136,8 @@
         <div class="flex items-center gap-3">
           <span class="text-emerald-500 text-xl">🛡️</span>
           <div>
-            <h2 class="text-xs sm:text-sm font-bold text-slate-900">Métricas 100% Anónimas y Conformes al RGPD</h2>
-            <p class="text-[11px] text-slate-500">Sin cookies invasivas ni recopilación de datos personales. Filtro activo contra recargas (F5).</p>
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900">Métricas Anónimas y Conformes al RGPD</h2>
+            <p class="text-[11px] text-slate-500">Lectura directa en tiempo real de la actividad del evento.</p>
           </div>
         </div>
         <div id="status-indicator" class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap">
@@ -222,18 +222,10 @@
 
       <!-- PANEL DE RESUMEN Y CONVERSIÓN -->
       <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-6">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-          <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-            <span>📈</span>
-            <span>Rendimiento Global de la Convocatoria</span>
-          </h3>
-          <button 
-            onclick="resetCounters()" 
-            class="text-xs text-rose-600 hover:text-rose-800 font-semibold underline cursor-pointer"
-          >
-            Poner contadores a cero
-          </button>
-        </div>
+        <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <span>📈</span>
+          <span>Rendimiento Global de la Convocatoria</span>
+        </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           
@@ -295,6 +287,19 @@
     const BASELINES_KEY = "mapei_stats_baselines_v1";
     const API_NAMESPACE = "mapei-bariperfil-malaga-2026";
 
+    // =========================================================================
+    // ⚙️ LÍNEA 300: VALORES BASE / RECUPERACIÓN MANUAL DE ESTADÍSTICAS
+    // Si deseas fijar o recuperar números específicos anteriores, cámbialos aquí:
+    // =========================================================================
+    const ESTADISTICAS_MANUALES = {
+      visitas: 0,          // <-- Pon aquí tus visitas anteriores
+      whatsapp_clicks: 0,  // <-- Pon aquí tus confirmaciones por WhatsApp
+      email_confirms: 0,   // <-- Pon aquí tus confirmaciones por Email
+      maps_clicks: 0,      // <-- Pon aquí tus clics en Maps
+      call_clicks: 0       // <-- Pon aquí tus llamadas
+    };
+    // =========================================================================
+
     // Comprobar si ya estaba autenticado en esta sesión
     if (sessionStorage.getItem(AUTH_SESSION_KEY) === "true") {
       showDashboard();
@@ -327,15 +332,20 @@
       location.reload();
     }
 
-    // Carga de estadísticas
+    // Recupera todo el histórico eliminando cualquier filtro de reseteo previo
+    function restoreAllHistoricalStats() {
+      localStorage.removeItem(BASELINES_KEY);
+      alert("✅ Filtro de reseteo eliminado. Mostrando todos los datos históricos acumulados.");
+      loadAllStats();
+    }
+
+    // Carga de estadísticas en tiempo real
     async function loadAllStats() {
       const indicator = document.getElementById('status-indicator');
-      indicator.textContent = "🔄 Consultando datos...";
+      indicator.textContent = "🔄 Consultando datos de la nube...";
       indicator.className = "text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full whitespace-nowrap";
 
       const local = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"call_clicks":0,"ultima_actividad":""}');
-      const baselines = JSON.parse(localStorage.getItem(BASELINES_KEY) || '{}');
-
       const endpoints = ['visitas', 'whatsapp_clicks', 'email_confirms', 'maps_clicks', 'call_clicks'];
       let stats = {};
 
@@ -349,76 +359,30 @@
         const results = await Promise.all(promises);
 
         endpoints.forEach((ep, i) => {
-          let rawTotal = local[ep] || 0;
+          let countFromCloud = 0;
           if (results[i] && typeof results[i].count === 'number') {
-            rawTotal = Math.max(rawTotal, results[i].count);
+            countFromCloud = results[i].count;
           }
-          const base = baselines[ep] || 0;
-          stats[ep] = Math.max(0, rawTotal - base);
+          const manualBase = ESTADISTICAS_MANUALES[ep] || 0;
+          const localCount = local[ep] || 0;
+          
+          // Se toma el valor real más alto entre la nube, el almacenamiento local y los valores manuales
+          stats[ep] = Math.max(countFromCloud, localCount, manualBase);
         });
 
         indicator.textContent = "🟢 Datos sincronizados";
         indicator.className = "text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap";
       } catch (e) {
         endpoints.forEach(ep => {
-          const rawTotal = local[ep] || 0;
-          const base = baselines[ep] || 0;
-          stats[ep] = Math.max(0, rawTotal - base);
+          const manualBase = ESTADISTICAS_MANUALES[ep] || 0;
+          const localCount = local[ep] || 0;
+          stats[ep] = Math.max(localCount, manualBase);
         });
         indicator.textContent = "🟡 Mostrando datos locales";
         indicator.className = "text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-300 px-3 py-1 rounded-full whitespace-nowrap";
       }
 
       renderStats(stats, local.ultima_actividad);
-    }
-
-    // Reiniciar contadores a cero
-    async function resetCounters() {
-      const confirmed = confirm("⚠️ ¿Estás seguro de que deseas reiniciar todos los contadores a cero?\n\nEsta acción pondrá a 0 las visitas, confirmaciones y clics registrados en el panel.");
-      if (!confirmed) return;
-
-      const endpoints = ['visitas', 'whatsapp_clicks', 'email_confirms', 'maps_clicks', 'call_clicks'];
-      const local = JSON.parse(localStorage.getItem(STATS_KEY) || '{}');
-
-      let baselines = {};
-      try {
-        const promises = endpoints.map(ep => 
-          fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${ep}`, { mode: 'cors' })
-            .then(res => res.ok ? res.json() : null)
-            .catch(() => null)
-        );
-        const results = await Promise.all(promises);
-        endpoints.forEach((ep, i) => {
-          let count = local[ep] || 0;
-          if (results[i] && typeof results[i].count === 'number') {
-            count = Math.max(count, results[i].count);
-          }
-          baselines[ep] = count;
-        });
-      } catch (e) {
-        endpoints.forEach(ep => {
-          baselines[ep] = local[ep] || 0;
-        });
-      }
-
-      localStorage.setItem(BASELINES_KEY, JSON.stringify(baselines));
-
-      // Reset local
-      const zeroStats = {
-        visitas: 0,
-        whatsapp_clicks: 0,
-        email_confirms: 0,
-        maps_clicks: 0,
-        call_clicks: 0,
-        ultima_actividad: new Date().toISOString()
-      };
-      localStorage.setItem(STATS_KEY, JSON.stringify(zeroStats));
-
-      renderStats(zeroStats, zeroStats.ultima_actividad);
-
-      const indicator = document.getElementById('status-indicator');
-      indicator.textContent = "✅ Contadores reiniciados a 0";
-      indicator.className = "text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-300 px-3 py-1 rounded-full whitespace-nowrap";
     }
 
     function renderStats(s, lastActivity) {
