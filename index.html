@@ -381,7 +381,7 @@
             >
           </div>
 
-          <!-- Botón Principal con texto ajustado -->
+          <!-- Botón Principal -->
           <button 
             type="submit" 
             class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition-all duration-150 shadow-lg shadow-mapei-600/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation min-h-[48px]"
@@ -393,7 +393,7 @@
           </button>
         </form>
 
-        <!-- Separador con frase actualizada -->
+        <!-- Separador -->
         <div class="relative my-6">
           <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
           <div class="relative flex justify-center text-xs">
@@ -416,58 +416,24 @@
         </div>
       </div>
 
-      <!-- ================= ESTADO DE ÉXITO Y AGREGAR A CALENDARIOS ================= -->
-      <div id="rsvp-success" class="hidden text-center py-2 sm:py-3">
-        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl sm:text-2xl font-bold">
+      <!-- ================= ESTADO DE ÉXITO (LIMPIO Y SIN PASOS INTERMEDIOS) ================= -->
+      <div id="rsvp-success" class="hidden text-center py-4 sm:py-6">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3.5 text-2xl sm:text-3xl font-bold shadow-xs">
           ✓
         </div>
-        <h3 id="success-title" class="text-lg sm:text-xl font-extrabold text-slate-900 mb-1">
-          ¡Confirmación Preparada y Plaza Reservada!
+        <h3 id="success-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
+          ¡Plaza Reservada con Éxito!
         </h3>
-        <p id="success-desc" class="text-xs text-slate-600 mb-4 max-w-sm mx-auto">
-          Hemos preparado tu confirmación. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga.
+        <p id="success-desc" class="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
+          Hemos registrado tu solicitud. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en las instalaciones de Bariperfil Málaga.
         </p>
 
-        <!-- AÑADIR A LA AGENDA PROFESIONAL: ANDROID Y APPLE -->
-        <div class="p-4 bg-mapei-50/80 rounded-2xl border border-mapei-200 text-left mb-4">
-          <p class="text-[10px] sm:text-[11px] font-bold text-mapei-900 uppercase tracking-wider mb-2.5">
-            Añadir a tu agenda profesional:
-          </p>
-          
-          <div class="space-y-2">
-            <!-- Opción Android (Abre Google Calendar directamente en edición del evento) -->
-            <a 
-              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jornada+T%C3%A9cnica+Mapei+-+Bariperfil+M%C3%A1laga&dates=20261104T080000Z/20261104T103000Z&details=Jornada+t%C3%A9cnica+sobre+soportes,+patolog%C3%ADas,+humedad+y+barreras.+Ponentes:+David+P%C3%A9rez+(670275741)+y+Mill%C3%A1n+%C3%81lvarez+(678054733)&location=Bariperfil+M%C3%A1laga,+Av.+de+Jos%C3%A9+Ortega+y+Gasset,+288,+29006+M%C3%A1laga" 
-              target="_blank"
-              onclick="trackEvent('calendar_clicks')"
-              class="w-full py-3 px-4 rounded-xl bg-white border border-slate-300 hover:border-mapei-600 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 shadow-2xs active:scale-98 transition min-h-[46px]"
-            >
-              <svg class="w-4 h-4 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
-                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4111 13.8533 8.081 12 8.081s-3.5902.3301-5.1367.8697L4.841 5.4477a.416.416 0 00-.5676-.1521.416.416 0 00-.1521.5676l1.9973 3.4592C2.6889 10.9996.3479 14.7397.3479 19.0811h23.3042c0-4.3414-2.341-8.0815-5.7716-9.7597"/>
-              </svg>
-              <span>+ Añadir en Calendario Android</span>
-            </a>
-
-            <!-- Opción Apple (Abre directamente la edición / creación del evento en iPhone / iPad / Mac) -->
-            <button 
-              type="button"
-              onclick="openAppleCalendar()"
-              class="w-full py-3 px-4 rounded-xl bg-white border border-slate-300 hover:border-mapei-600 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 shadow-2xs active:scale-98 transition min-h-[46px] cursor-pointer"
-            >
-              <svg class="w-4 h-4 fill-slate-800 flex-shrink-0" viewBox="0 0 24 24">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.06.66-2.7 1.42-.56.66-.99 1.72-.94 2.76 1.07.08 2.06-.57 2.63-1.31z"/>
-              </svg>
-              <span>+ Añadir en Calendario Apple (iPhone / Mac)</span>
-            </button>
-          </div>
-        </div>
-
         <!-- Botones de Acción: Cerrar y volver + Inscribir a otro asistente -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2 border-t border-slate-100">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3 border-t border-slate-100">
           <button 
             type="button"
             onclick="resetRegistration()" 
-            class="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 font-bold text-xs transition cursor-pointer touch-manipulation min-h-[42px]"
+            class="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 font-bold text-xs transition cursor-pointer touch-manipulation min-h-[44px]"
           >
             Cerrar y volver
           </button>
@@ -475,7 +441,7 @@
           <button 
             type="button"
             onclick="resetRegistration()" 
-            class="w-full sm:w-auto py-2 px-3 text-xs text-mapei-700 hover:underline font-bold transition"
+            class="w-full sm:w-auto py-2.5 px-4 text-xs text-mapei-700 hover:underline font-bold transition cursor-pointer"
           >
             ← Inscribir a otro asistente
           </button>
@@ -507,7 +473,7 @@
 
     function trackEvent(eventType) {
       try {
-        let stats = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"calendar_clicks":0,"call_clicks":0,"ultima_actividad":""}');
+        let stats = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"call_clicks":0,"ultima_actividad":""}');
         stats[eventType] = (stats[eventType] || 0) + 1;
         stats.ultima_actividad = new Date().toISOString();
         localStorage.setItem(STATS_KEY, JSON.stringify(stats));
@@ -549,11 +515,11 @@
       // Lanzar el cliente de correo
       window.location.href = mailtoUrl;
 
-      // Mostrar pantalla de confirmación con opciones de calendario
+      // Mostrar pantalla de confirmación limpia
       showSuccessScreen("email");
     }
 
-    // Envío por WhatsApp e INMEDIATA apertura de pantalla de calendarios
+    // Envío por WhatsApp e inmediata apertura de pantalla de confirmación
     function sendWhatsAppConfirmation() {
       const nameInput = document.getElementById('attendee-name');
       const contactInput = document.getElementById('attendee-contact');
@@ -575,7 +541,7 @@
       // Abrir WhatsApp en nueva pestaña
       window.open(waUrl, '_blank');
 
-      // Mostrar pantalla de calendarios inmediatamente
+      // Mostrar pantalla de confirmación limpia
       showSuccessScreen("whatsapp");
     }
 
@@ -585,10 +551,10 @@
 
       if (channel === 'whatsapp') {
         titleEl.textContent = "¡WhatsApp Abierto y Plaza Reservada!";
-        descEl.innerHTML = "Se ha abierto tu chat con Millán Álvarez (Bariperfil). Te esperamos el <strong>4 de noviembre a las 09:00 h</strong>.";
+        descEl.innerHTML = "Se ha abierto tu chat con Millán Álvarez (Bariperfil). Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga.";
       } else {
         titleEl.textContent = "¡Correo Preparado y Plaza Reservada!";
-        descEl.innerHTML = "Hemos preparado tu mensaje para <strong>malaga@bariperfil.es</strong>. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong>.";
+        descEl.innerHTML = "Hemos preparado tu mensaje para <strong>malaga@bariperfil.es</strong>. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga.";
       }
 
       document.getElementById('rsvp-card').classList.add('hidden');
@@ -599,38 +565,6 @@
       document.getElementById('rsvp-form').reset();
       document.getElementById('rsvp-success').classList.add('hidden');
       document.getElementById('rsvp-card').classList.remove('hidden');
-    }
-
-    // Apertura nativa de Calendario en dispositivos Apple (iPhone, iPad, Mac)
-    function openAppleCalendar() {
-      trackEvent('calendar_clicks');
-
-      const icsData = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Mapei//Jornada Tecnica Bariperfil//ES",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "BEGIN:VEVENT",
-        "UID:mapei-bariperfil-20261104@mapei.es",
-        "SUMMARY:Jornada Técnica Mapei - Bariperfil Málaga",
-        "DESCRIPTION:Jornada técnica sobre diagnóstico, reparación y preparación de soportes.\\nPonente Mapei: David Pérez (670 275 741)\\nBariperfil: Millán Álvarez (678 054 733)",
-        "LOCATION:Bariperfil Málaga, Av. de José Ortega y Gasset, 288, 29006 Málaga",
-        "DTSTART:20261104T080000Z",
-        "DTEND:20261104T103000Z",
-        "STATUS:CONFIRMED",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      // Descarga directa compatible con el visor nativo de EventKit en iOS / macOS
-      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
-      const link = document.createElement("a");
-      link.href = window.URL.createObjectURL(blob);
-      link.setAttribute("download", "Jornada-Mapei-Bariperfil.ics");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     }
   </script>
 </body>
