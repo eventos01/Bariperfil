@@ -82,34 +82,48 @@
     </div>
   </div>
 
-  <!-- ================= PANTALLA 2: DASHBOARD DE ESTADÍSTICAS (OCULTO INICIALMENTE) ================= -->
+  <!-- ================= PANTALLA 2: DASHBOARD DE ESTADÍSTICAS ================= -->
   <div id="dashboard-screen" class="hidden min-h-screen flex flex-col justify-between">
     
-    <!-- Barra Superior -->
+    <!-- Barra Superior con Botón de Reiniciar -->
     <header class="bg-mapei-900 text-white border-b border-mapei-950 sticky top-0 z-40">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-mapei-600 flex items-center justify-center text-sm font-bold">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="w-8 h-8 rounded-lg bg-mapei-600 flex items-center justify-center text-sm font-bold flex-shrink-0">
             📊
           </div>
           <div>
-            <h1 class="text-sm sm:text-base font-extrabold tracking-tight">Estadísticas de Actividad</h1>
-            <p class="text-[11px] text-mapei-200">Jornada Técnica Mapei · Bariperfil Málaga (4 Nov)</p>
+            <h1 class="text-xs sm:text-base font-extrabold tracking-tight leading-tight">Estadísticas de Actividad</h1>
+            <p class="text-[10px] sm:text-[11px] text-mapei-200">Jornada Técnica Mapei · Bariperfil Málaga (4 Nov)</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-2">
+        <!-- Acciones: Actualizar, Reiniciar y Salir -->
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <!-- Botón Actualizar -->
           <button 
             onclick="loadAllStats()" 
-            class="px-3 py-1.5 rounded-lg bg-mapei-800 hover:bg-mapei-700 text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-mapei-800 hover:bg-mapei-700 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
             title="Refrescar datos"
           >
             <span>🔄</span>
             <span class="hidden sm:inline">Actualizar</span>
           </button>
+
+          <!-- Botón Reiniciar Contador -->
+          <button 
+            onclick="resetCounters()" 
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-amber-600/90 hover:bg-amber-600 text-white text-xs font-semibold flex items-center gap-1 transition cursor-pointer shadow-xs"
+            title="Poner todos los contadores a cero"
+          >
+            <span>🗑️</span>
+            <span class="hidden sm:inline">Reiniciar</span>
+          </button>
+
+          <!-- Botón Salir -->
           <button 
             onclick="logout()" 
-            class="px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-semibold transition cursor-pointer"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-semibold transition cursor-pointer"
           >
             Salir
           </button>
@@ -126,7 +140,7 @@
           <span class="text-emerald-500 text-xl">🛡️</span>
           <div>
             <h2 class="text-xs sm:text-sm font-bold text-slate-900">Métricas 100% Anónimas y Conformes al RGPD</h2>
-            <p class="text-[11px] text-slate-500">Sin cookies invasivas ni almacenamiento de datos personales. Filtro activo contra recargas (F5).</p>
+            <p class="text-[11px] text-slate-500">Sin cookies invasivas ni recopilación de datos personales. Filtro activo contra recargas (F5).</p>
           </div>
         </div>
         <div id="status-indicator" class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap">
@@ -175,7 +189,7 @@
             <p id="stat-email" class="text-3xl sm:text-4xl font-extrabold text-mapei-700">0</p>
           </div>
           <p class="text-[11px] text-mapei-600 mt-3 pt-2 border-t border-mapei-100">
-            Formulario + Enlaces a malaga@bariperfil.es
+            Formulario directo a malaga@bariperfil.es
           </p>
         </div>
 
@@ -203,7 +217,7 @@
             <p id="stat-calendar" class="text-3xl sm:text-4xl font-extrabold text-slate-900">0</p>
           </div>
           <p class="text-[11px] text-slate-400 mt-3 pt-2 border-t border-slate-100">
-            Google Calendar y archivo .ics
+            Calendario Android y Apple (.ics)
           </p>
         </div>
 
@@ -225,10 +239,18 @@
 
       <!-- PANEL DE RESUMEN Y CONVERSIÓN -->
       <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-6">
-        <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-          <span>📈</span>
-          <span>Rendimiento Global de la Convocatoria</span>
-        </h3>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+          <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+            <span>📈</span>
+            <span>Rendimiento Global de la Convocatoria</span>
+          </h3>
+          <button 
+            onclick="resetCounters()" 
+            class="text-xs text-rose-600 hover:text-rose-800 font-semibold underline cursor-pointer"
+          >
+            Poner contadores a cero
+          </button>
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           
@@ -242,7 +264,7 @@
               <div id="stat-conversion-bar" class="bg-mapei-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
             </div>
             <p class="text-[11px] text-slate-500 mt-2">
-              Porcentaje de visitantes que han confirmado (WhatsApp o Email) o guardado la fecha en su calendario.
+              Porcentaje de visitantes que han confirmado asistencia o guardado el evento en su agenda.
             </p>
           </div>
 
@@ -287,6 +309,7 @@
     const VALID_PIN = "4662";
     const AUTH_SESSION_KEY = "mapei_stats_auth_ok";
     const STATS_KEY = "mapei_bariperfil_stats_v1";
+    const BASELINES_KEY = "mapei_stats_baselines_v1";
     const API_NAMESPACE = "mapei-bariperfil-malaga-2026";
 
     // Comprobar si ya estaba autenticado en esta sesión
@@ -321,27 +344,18 @@
       location.reload();
     }
 
-    // Carga de estadísticas (combinando la API en la nube y el respaldo local)
+    // Carga de estadísticas
     async function loadAllStats() {
       const indicator = document.getElementById('status-indicator');
       indicator.textContent = "🔄 Consultando datos...";
       indicator.className = "text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full whitespace-nowrap";
 
-      // Respaldo local
       const local = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"calendar_clicks":0,"call_clicks":0,"ultima_actividad":""}');
+      const baselines = JSON.parse(localStorage.getItem(BASELINES_KEY) || '{}');
 
-      let stats = {
-        visitas: local.visitas || 0,
-        whatsapp_clicks: local.whatsapp_clicks || 0,
-        email_confirms: local.email_confirms || 0,
-        maps_clicks: local.maps_clicks || 0,
-        calendar_clicks: local.calendar_clicks || 0,
-        call_clicks: local.call_clicks || 0,
-      };
-
-      // Consulta a la nube (CounterAPI)
       const endpoints = ['visitas', 'whatsapp_clicks', 'email_confirms', 'maps_clicks', 'calendar_clicks', 'call_clicks'];
-      
+      let stats = {};
+
       try {
         const promises = endpoints.map(ep => 
           fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${ep}`, { mode: 'cors' })
@@ -352,15 +366,22 @@
         const results = await Promise.all(promises);
 
         endpoints.forEach((ep, i) => {
+          let rawTotal = local[ep] || 0;
           if (results[i] && typeof results[i].count === 'number') {
-            // Se toma el valor mayor entre nube y local para no perder eventos
-            stats[ep] = Math.max(stats[ep], results[i].count);
+            rawTotal = Math.max(rawTotal, results[i].count);
           }
+          const base = baselines[ep] || 0;
+          stats[ep] = Math.max(0, rawTotal - base);
         });
 
-        indicator.textContent = "🟢 Sincronizado en tiempo real";
+        indicator.textContent = "🟢 Datos sincronizados";
         indicator.className = "text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap";
       } catch (e) {
+        endpoints.forEach(ep => {
+          const rawTotal = local[ep] || 0;
+          const base = baselines[ep] || 0;
+          stats[ep] = Math.max(0, rawTotal - base);
+        });
         indicator.textContent = "🟡 Mostrando datos locales";
         indicator.className = "text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-300 px-3 py-1 rounded-full whitespace-nowrap";
       }
@@ -368,15 +389,67 @@
       renderStats(stats, local.ultima_actividad);
     }
 
-    function renderStats(s, lastActivity) {
-      document.getElementById('stat-visitas').textContent = s.visitas;
-      document.getElementById('stat-whatsapp').textContent = s.whatsapp_clicks;
-      document.getElementById('stat-email').textContent = s.email_confirms;
-      document.getElementById('stat-maps').textContent = s.maps_clicks;
-      document.getElementById('stat-calendar').textContent = s.calendar_clicks;
-      document.getElementById('stat-calls').textContent = s.call_clicks;
+    // Reiniciar contadores a cero
+    async function resetCounters() {
+      const confirmed = confirm("⚠️ ¿Estás seguro de que deseas reiniciar todos los contadores a cero?\n\nEsta acción pondrá a 0 las visitas, confirmaciones y clics registrados en el panel.");
+      if (!confirmed) return;
 
-      const totalConfirms = s.whatsapp_clicks + s.email_confirms;
+      const endpoints = ['visitas', 'whatsapp_clicks', 'email_confirms', 'maps_clicks', 'calendar_clicks', 'call_clicks'];
+      const local = JSON.parse(localStorage.getItem(STATS_KEY) || '{}');
+
+      // Consultamos los totales actuales para establecer la línea base de reseteo
+      let baselines = {};
+      try {
+        const promises = endpoints.map(ep => 
+          fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${ep}`, { mode: 'cors' })
+            .then(res => res.ok ? res.json() : null)
+            .catch(() => null)
+        );
+        const results = await Promise.all(promises);
+        endpoints.forEach((ep, i) => {
+          let count = local[ep] || 0;
+          if (results[i] && typeof results[i].count === 'number') {
+            count = Math.max(count, results[i].count);
+          }
+          baselines[ep] = count;
+        });
+      } catch (e) {
+        endpoints.forEach(ep => {
+          baselines[ep] = local[ep] || 0;
+        });
+      }
+
+      localStorage.setItem(BASELINES_KEY, JSON.stringify(baselines));
+
+      // Reset local
+      const zeroStats = {
+        visitas: 0,
+        whatsapp_clicks: 0,
+        email_confirms: 0,
+        maps_clicks: 0,
+        calendar_clicks: 0,
+        call_clicks: 0,
+        ultima_actividad: new Date().toISOString()
+      };
+      localStorage.setItem(STATS_KEY, JSON.stringify(zeroStats));
+
+      // Actualizar visualmente de inmediato
+      renderStats(zeroStats, zeroStats.ultima_actividad);
+
+      const indicator = document.getElementById('status-indicator');
+      indicator.textContent = "✅ Contadores reiniciados a 0";
+      indicator.className = "text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-300 px-3 py-1 rounded-full whitespace-nowrap";
+    }
+
+    function renderStats(s, lastActivity) {
+      document.getElementById('stat-visitas').textContent = s.visitas || 0;
+      document.getElementById('stat-whatsapp').textContent = s.whatsapp_clicks || 0;
+      document.getElementById('stat-email').textContent = s.email_confirms || 0;
+      document.getElementById('stat-maps').textContent = s.maps_clicks || 0;
+      document.getElementById('stat-calendar').textContent = s.calendar_clicks || 0;
+      document.getElementById('stat-calls').textContent = s.call_clicks || 0;
+
+      const totalConfirms = (s.whatsapp_clicks || 0) + (s.email_confirms || 0);
       document.getElementById('stat-total-confirmaciones').textContent = `${totalConfirms} confirmaciones`;
 
       // Canal preferido
@@ -391,7 +464,7 @@
       }
 
       // Tasa de conversión
-      const interactions = totalConfirms + s.calendar_clicks;
+      const interactions = totalConfirms + (s.calendar_clicks || 0);
       const rate = s.visitas > 0 ? Math.min(100, Math.round((interactions / s.visitas) * 100)) : 0;
       document.getElementById('stat-conversion-rate').textContent = `${rate}%`;
       document.getElementById('stat-conversion-bar').style.width = `${rate}%`;
