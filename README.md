@@ -1,37 +1,48 @@
 # Jornada Técnica Profesional: Mapei & Bariperfil Málaga
 
-Landing page y cartel interactivo de programa para la **Jornada Técnica de Diagnóstico, Reparación y Preparación de Soportes**, organizada conjuntamente por **MAPEI** y **Bariperfil Málaga**.
+Landing page interactiva de convocatoria y confirmación para la **Jornada Técnica sobre Preparación de Soportes**, organizada conjuntamente por **MAPEI** y **Bariperfil Málaga**.
 
 ---
 
 ## 📌 Datos Clave del Evento
 
-* **Fecha y Hora:** Lunes, **4 de Noviembre** a las **09:00 h**.
+* **Fecha y Hora:** **Miércoles, 4 de Noviembre** a las **09:00 h**.
 * **Ubicación:** Instalaciones de **Bariperfil Málaga**  
   *Av. de José Ortega y Gasset, 288, Cruz de Humilladero, 29006 Málaga*.  
   [Ver en Google Maps](https://www.google.com/maps/search/?api=1&query=Bariperfil+M%C3%A1laga+Av.+de+Jos%C3%A9+Ortega+y+Gasset+288+29006+M%C3%A1laga)
-* **Formato:** Sesión presencial teórico-práctica para instaladores y profesionales del pavimento.
-* **Coste:** Gratuito con plazas limitadas (sin necesidad de crear cuenta ni registros previos).
+* **Formato:** Jornada presencial teórico-práctica para instaladores y profesionales del pavimento.
+* **Coste:** Gratuito con plazas limitadas.
 
 ---
 
-## 📋 Orden del Día (Programa Técnico)
+## 🧭 Estructura y Flujo de Respuesta (3 Opciones)
 
-1. **01. Valorar e identificar soportes:**  
-   Tipologías de base: soleras de hormigón, recrecidos de mortero, soportes cerámicos y diagnosis previa de resistencia.
-2. **02. Reparar patologías en soportes:**  
-   Tratamiento de fisuras activas, consolidación de soleras disgregadas, regularización y morteros autonivelantes.
-3. **03. Comprobar humedad y límites permitidos:**  
-   Métodos de medición (carburo de calcio vs higrómetro digital). Tolerancias y porcentajes máximos admisibles según normativa.
-4. **04. Uso y sistemas de barrera:**  
-   Barreras de vapor epoxi/poliuretano, bloqueo de remonte capilar, imprimaciones técnicas y puentes de unión Mapei.
+La página mantiene la cabecera co-branding (**MAPEI × Bariperfil**), la barra de datos clave con cuenta atrás automática hasta el **4 de noviembre a las 09:00 h**, un bloque central interactivo con **3 opciones de respuesta**, y las tarjetas de contacto en el pie de página.
+
+### 1. «Sí, asistiré»
+* Pregunta al asistente si desea confirmar sus datos para reservar plaza nominal:
+  * **«Sí, confirmar mis datos»:** Abre el formulario (Nombre/Empresa y Teléfono/Email). Al rellenar ambos campos se activan dinámicamente los botones **Confirmar por Email** (`malaga@bariperfil.es`) y **Confirmar por WhatsApp** (`678 054 733`).
+  * **«No hace falta, solo avisar de que iré»:** Registra la asistencia de forma anónima y muestra la pantalla de cierre y agradecimiento.
+
+### 2. «Me interesa, pero no puedo ese día»
+* Agradece el interés y ofrece avisar en una próxima convocatoria.
+* Incluye **casillas de selección múltiple (checkboxes)** con los temas de especial interés:
+  * *Preparación de soportes*
+  * *Humedad*
+  * *Adhesivos*
+  * *Autonivelantes*
+  * *Acabados para el parquet*
+* Al completar **Nombre/Empresa** y **Teléfono/Email**, se muestran las dos vías de envío (**Email** a `malaga@bariperfil.es` y **WhatsApp** a Millán Álvarez `678 054 733`), incluyendo automáticamente en el borrador los temas marcados.
+
+### 3. «No podré asistir»
+* Registra el clic en estadísticas y muestra un mensaje directo de agradecimiento por responder.
 
 ---
 
-## 👥 Equipo y Contactos
+## 👥 Equipo y Contactos (Pie de Página)
 
 1. **Millán Álvarez** — *Delegado Comercial · BARIPERFIL*  
-   * Teléfono Móvil: `678 054 733`  
+   * Teléfono Móvil / WhatsApp: `678 054 733`  
    * Teléfono Almacén: `952 00 97 43`
 2. **David Pérez** — *Product Specialist · MAPEI*  
    * Teléfono: `670 275 741`  
@@ -40,47 +51,40 @@ Landing page y cartel interactivo de programa para la **Jornada Técnica de Diag
    * Teléfono: `637 814 079`  
    * Email: `jasanchez@mapei.es`
 
----
-
-## 🚀 Flujo de Confirmación de Asistencia ("Sin Registro")
-
-La web ofrece dos vías directas y sin fricción:
-
-### 1. Vía Formulario (Email)
-* Solicita: *Nombre / Empresa* y *Teléfono / Email*.
-* Botón: **"Confirmar Asistencia por Email"**.
-* Acción: Genera automáticamente un enlace `mailto:` listo para enviar al correo:
-  * **Destino:** `malaga@bariperfil.es`
-  * **Asunto:** *Confirmación de Asistencia - Jornada Técnica Mapei en Bariperfil (4 Nov)*
-  * **Cuerpo:** Incluye automáticamente el nombre y contacto introducidos.
-* Muestra en pantalla el estado de éxito con botones directos para añadir la cita a **Google Calendar** y descargar archivo **.ics** para Outlook y iPhone.
-
-### 2. Vía WhatsApp (Dinámica)
-* Separador: *"Si prefieres lo puedes hacer por whatsapp"*.
-* Botón: **"Confirmar por WhatsApp"**.
-* Acción: Si el usuario ya ha escrito su nombre o contacto en los campos, la función JavaScript los extrae e inserta en el mensaje de WhatsApp dirigido a Millán Álvarez (`678 054 733`):
-  > *Hola, confirmo mi asistencia a la Jornada Técnica Mapei en Bariperfil Málaga el 4 de noviembre a las 9:00 h.*  
-  > *• Asistente / Empresa: [Nombre]*  
-  > *• Contacto: [Teléfono o email]*
+* **Correo receptor de inscripciones y nuevas convocatorias:** `malaga@bariperfil.es`
 
 ---
 
-## 🔒 Panel Privado de Estadísticas (`/estadisticas.html`)
+## 📊 Estadísticas con GoatCounter (`/estadisticas.html`)
 
-Página oculta y protegida para medir la actividad del evento en tiempo real.
+La web utiliza **GoatCounter** (`https://gemayrafa.goatcounter.com`) para registrar visitas y eventos de forma 100% anónima y conforme al RGPD.
 
-* **Ruta:** `estadisticas.html` (ej. `https://tu-usuario.github.io/tu-repo/estadisticas.html`).
-* **Clave de Acceso:** **`4662`**
-* **Métricas monitorizadas:**
-  * **Visitas Únicas:** Filtradas por `sessionStorage` para **no computar duplicados por recarga (F5)**.
-  * **Confirmaciones por WhatsApp.**
-  * **Confirmaciones por Email.**
-  * **Clics en ruta Google Maps.**
-  * **Guardados en Calendario** (Google / Apple / Outlook).
-  * **Llamadas telefónicas directas.**
-  * **Tasa de conversión** estimada y canal preferido.
-* **Infraestructura de datos:** Micro-API global anónima [CounterAPI](https://counterapi.dev) (Namespace: `mapei-bariperfil-malaga-2026`) combinada con almacenamiento de respaldo en `localStorage`.
-* **Privacidad RGPD:** 100% Anónimo. No registra IPs, cookies de seguimiento ni datos personales.
+* **Panel oficial de GoatCounter:** [https://gemayrafa.goatcounter.com](https://gemayrafa.goatcounter.com)
+* **Resumen privado en la web:** `estadisticas.html` (Clave de acceso: **`4662`**)
+  * Incluye un botón directo para **Abrir el panel completo de GoatCounter** y un resumen automático de las respuestas y temas de interés.
+  * **Requisito en GoatCounter para ver los contadores dentro de `estadisticas.html`:** En tu cuenta de GoatCounter, entra en **Settings → Main** y marca la casilla **"Allow adding visitor counts on your website"**, luego pulsa **Save**.
+
+### Eventos registrados en GoatCounter
+
+| Código de evento en GoatCounter | Qué mide |
+| :--- | :--- |
+| `/` | Visitas a la página principal |
+| `respuesta-asistire` | Clic en opción 1: «Sí, asistiré» |
+| `respuesta-interesa` | Clic en opción 2: «Me interesa, pero no puedo ese día» |
+| `respuesta-no-asistire` | Clic en opción 3: «No podré asistir» |
+| `asistire-datos-si` | Asistentes que eligen dejar sus datos |
+| `asistire-datos-no` | Asistentes que eligen «No hace falta, solo avisar de que iré» |
+| `inscripcion-email` | Confirmación de asistencia enviada por Email |
+| `inscripcion-whatsapp` | Confirmación de asistencia enviada por WhatsApp |
+| `interes-email` | Solicitud de próxima convocatoria enviada por Email |
+| `interes-whatsapp` | Solicitud de próxima convocatoria enviada por WhatsApp |
+| `interes-tema-soportes` | Interés marcado en: *Preparación de soportes* |
+| `interes-tema-humedad` | Interés marcado en: *Humedad* |
+| `interes-tema-adhesivos` | Interés marcado en: *Adhesivos* |
+| `interes-tema-autonivelantes` | Interés marcado en: *Autonivelantes* |
+| `interes-tema-parquet` | Interés marcado en: *Acabados para el parquet* |
+| `mapa` | Clic en cómo llegar (Google Maps) |
+| `llamada` | Clic en números de teléfono del pie de página |
 
 ---
 
@@ -88,25 +92,7 @@ Página oculta y protegida para medir la actividad del evento en tiempo real.
 
 ```
 landing-evento/
-├── index.html          # Web principal del evento y formulario de asistencia
-├── estadisticas.html   # Panel privado de analítica con clave 4662
-└── README.md           # Esta documentación técnica
+├── index.html          # Web principal con cuenta atrás, 3 opciones de respuesta y GoatCounter
+├── estadisticas.html   # Panel privado (clave 4662) conectado a GoatCounter
+└── README.md           # Documentación del proyecto
 ```
-
----
-
-## 🌐 Publicación y Actualización en GitHub Pages
-
-1. Sube los archivos a tu repositorio público de GitHub (`index.html`, `estadisticas.html`, `README.md`).
-2. En el repositorio: **Settings > Pages > Branch: `main` / Folder: `/(root)` > Save**.
-3. Tu web estará operativa de inmediato en:
-   * **Web del evento:** `https://<usuario>.github.io/<repositorio>/`
-   * **Panel privado de estadísticas:** `https://<usuario>.github.io/<repositorio>/estadisticas.html`
-
----
-
-## 💻 Instrucciones para Continuar en Otro PC con Antigravity
-
-1. Copia la carpeta `landing-evento` a la máquina nueva (o descárgala como ZIP desde tu repositorio de GitHub).
-2. En la nueva instancia de Antigravity, selecciona **"Open Folder"** y elige la carpeta `landing-evento`.
-3. Antigravity leerá este archivo `README.md` y tendrá todo el contexto técnico, claves, contactos y flujos de trabajo listos para seguir programando.

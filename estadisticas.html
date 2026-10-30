@@ -25,6 +25,7 @@
             mapei: {
               50: '#edf6fc',
               100: '#d7ecf9',
+              200: '#b6ddf4',
               600: '#0066B2',
               700: '#065392',
               800: '#094779',
@@ -90,24 +91,17 @@
           </div>
           <div>
             <h1 class="text-xs sm:text-base font-extrabold tracking-tight leading-tight">Estadísticas de Actividad</h1>
-            <p class="text-[10px] sm:text-[11px] text-mapei-200">Jornada Técnica Mapei · Bariperfil Málaga (4 Nov)</p>
+            <p class="text-[10px] sm:text-[11px] text-mapei-200">Jornada Técnica Mapei · Bariperfil Málaga (Miércoles 4 Nov)</p>
           </div>
         </div>
 
-        <!-- Acciones: Actualizar, Restaurar y Salir -->
+        <!-- Acciones: Actualizar y Salir -->
         <div class="flex items-center gap-1.5 sm:gap-2">
           <button onclick="loadAllStats()"
             class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-mapei-800 hover:bg-mapei-700 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
-            title="Refrescar datos de la nube">
+            title="Refrescar datos de GoatCounter">
             <span>🔄</span>
             <span class="hidden sm:inline">Actualizar</span>
-          </button>
-
-          <button onclick="restoreAllHistoricalStats()"
-            class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 transition cursor-pointer shadow-xs"
-            title="Recuperar todos los datos históricos acumulados">
-            <span>📥</span>
-            <span class="hidden sm:inline">Recuperar Histórico</span>
           </button>
 
           <button onclick="logout()"
@@ -121,143 +115,292 @@
     <!-- Contenido Principal del Dashboard -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-grow w-full">
 
-      <!-- Aviso de Privacidad y Metodología -->
+      <!-- Cabecera GoatCounter: Acceso Directo + Estado -->
       <div
-        class="mb-6 p-4 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
-        <div class="flex items-center gap-3">
-          <span class="text-emerald-500 text-xl">🛡️</span>
+        class="mb-6 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
+        <div class="flex items-start sm:items-center gap-3">
+          <span class="text-mapei-600 text-2xl">🐐</span>
           <div>
-            <h2 class="text-xs sm:text-sm font-bold text-slate-900">Métricas Anónimas y Conformes al RGPD</h2>
-            <p class="text-[11px] text-slate-500">Lectura directa en tiempo real de la actividad del evento.</p>
-          </div>
-        </div>
-        <div id="status-indicator"
-          class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap">
-          🟢 Datos sincronizados
-        </div>
-      </div>
-
-      <!-- TARJETAS DE MÉTRICAS PRINCIPALES -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 mb-8">
-
-        <!-- Métrica 1: Visitas Únicas -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-slate-400 mb-2">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600">Visitas Únicas</span>
-              <span class="text-base">👀</span>
+            <div class="flex flex-wrap items-center gap-2">
+              <h2 class="text-xs sm:text-sm font-extrabold text-slate-900">Analítica Conectada con GoatCounter</h2>
+              <span id="status-indicator"
+                class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                🟢 Sincronizado
+              </span>
             </div>
-            <p id="stat-visitas" class="text-3xl font-extrabold text-slate-900">0</p>
-          </div>
-          <p class="text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-100">
-            Sin duplicados de sesión
-          </p>
-        </div>
-
-        <!-- Métrica 2: Confirmaciones WhatsApp -->
-        <div
-          class="bg-white p-4 rounded-2xl border border-emerald-200 bg-emerald-50/20 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-slate-400 mb-2">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Vía WhatsApp</span>
-              <span class="text-base">💬</span>
-            </div>
-            <p id="stat-whatsapp" class="text-3xl font-extrabold text-emerald-700">0</p>
-          </div>
-          <p class="text-[10px] text-emerald-600 mt-3 pt-2 border-t border-emerald-100">
-            Avisos a Millán Álvarez
-          </p>
-        </div>
-
-        <!-- Métrica 3: Confirmaciones Email -->
-        <div
-          class="bg-white p-4 rounded-2xl border border-mapei-200 bg-mapei-50/20 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-slate-400 mb-2">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-mapei-800">Vía Email</span>
-              <span class="text-base">✉️</span>
-            </div>
-            <p id="stat-email" class="text-3xl font-extrabold text-mapei-700">0</p>
-          </div>
-          <p class="text-[10px] text-mapei-600 mt-3 pt-2 border-t border-mapei-100">
-            A malaga@bariperfil.es
-          </p>
-        </div>
-
-        <!-- Métrica 4: Clics en Google Maps -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-slate-400 mb-2">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600">Google Maps</span>
-              <span class="text-base">📍</span>
-            </div>
-            <p id="stat-maps" class="text-3xl font-extrabold text-slate-900">0</p>
-          </div>
-          <p class="text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-100">
-            Cómo llegar a Bariperfil
-          </p>
-        </div>
-
-        <!-- Métrica 5: Contactos / Llamadas -->
-        <div
-          class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
-          <div>
-            <div class="flex items-center justify-between text-slate-400 mb-2">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600">Llamadas</span>
-              <span class="text-base">📞</span>
-            </div>
-            <p id="stat-calls" class="text-3xl font-extrabold text-slate-900">0</p>
-          </div>
-          <p class="text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-100">
-            Clics en teléfonos
-          </p>
-        </div>
-
-      </div>
-
-      <!-- PANEL DE RESUMEN Y CONVERSIÓN -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-6">
-        <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-          <span>📈</span>
-          <span>Rendimiento Global de la Convocatoria</span>
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-
-          <!-- Tasa de Interacción -->
-          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-bold text-slate-600">Tasa de Conversión (Asistencia)</span>
-              <span id="stat-conversion-rate" class="text-lg font-extrabold text-mapei-700">0%</span>
-            </div>
-            <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-              <div id="stat-conversion-bar" class="bg-mapei-600 h-3 rounded-full transition-all duration-500"
-                style="width: 0%"></div>
-            </div>
-            <p class="text-[11px] text-slate-500 mt-2">
-              Porcentaje de visitantes únicos que han completado su confirmación (Email o WhatsApp).
+            <p class="text-[11px] text-slate-500 mt-0.5">
+              Resumen en vivo + acceso directo al panel oficial con gráficas por día, navegador y dispositivo.
             </p>
           </div>
+        </div>
 
-          <!-- Total de Acciones Registradas -->
-          <div class="space-y-2 text-xs text-slate-600">
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span>Total de confirmaciones solicitadas:</span>
-              <strong id="stat-total-confirmaciones" class="text-slate-900 font-bold">0</strong>
+        <a href="https://gemayrafa.goatcounter.com" target="_blank" rel="noopener noreferrer"
+          class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-mapei-600 hover:bg-mapei-700 text-white font-bold text-xs shadow-md shadow-mapei-600/20 transition whitespace-nowrap">
+          <span>Abrir panel completo de GoatCounter</span>
+          <span>↗</span>
+        </a>
+      </div>
+
+      <!-- Aviso si aún no está activado el ajuste JSON público o sin datos -->
+      <div id="goatcounter-notice"
+        class="hidden mb-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+        <div class="font-bold mb-1">ℹ️ Nota sobre la lectura de cifras en esta página:</div>
+        Para ver las cifras directamente en este resumen, activa la casilla
+        <strong>"Allow adding visitor counts on your website"</strong> en
+        <a href="https://gemayrafa.goatcounter.com/settings" target="_blank" rel="noopener noreferrer"
+          class="underline font-bold hover:text-amber-700">GoatCounter → Settings</a>
+        (si un evento aún no ha recibido ningún clic, mostrará <strong>0</strong>). También puedes consultar todas las métricas en cualquier momento pulsando <strong>"Abrir panel completo de GoatCounter"</strong> arriba.
+      </div>
+
+      <!-- 1. RESPUESTA PRINCIPAL A LA CONVOCATORIA (LAS 3 OPCIONES) -->
+      <section class="mb-8">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+            <span>🗳️</span>
+            <span>1. Respuesta Principal a la Convocatoria</span>
+          </h3>
+          <span class="text-xs font-bold text-slate-500">
+            Total respuestas: <strong id="stat-total-respuestas" class="text-slate-900">0</strong>
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          <!-- Opción 1: Sí, asistiré -->
+          <div class="bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800">Sí, asistiré</span>
+                <span class="text-lg">✅</span>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <p id="stat-resp-asistire" class="text-3xl font-extrabold text-emerald-700">0</p>
+                <span id="pct-resp-asistire" class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">0%</span>
+              </div>
             </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span>Canal preferido por los asistentes:</span>
-              <strong id="stat-preferencia-canal" class="text-mapei-700 font-bold">-</strong>
+            <div class="mt-3 pt-2.5 border-t border-emerald-100">
+              <div class="w-full bg-emerald-100 rounded-full h-1.5 overflow-hidden mb-1.5">
+                <div id="bar-resp-asistire" class="bg-emerald-600 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+              <p class="text-[10px] text-slate-400">Evento: <code>respuesta-asistire</code></p>
             </div>
-            <div class="flex justify-between py-1.5">
-              <span>Última actividad registrada:</span>
-              <span id="stat-ultima-fecha" class="text-slate-500 font-medium">Sin datos aún</span>
+          </div>
+
+          <!-- Opción 2: Me interesa, pero no puedo ese día -->
+          <div class="bg-white p-5 rounded-2xl border-2 border-amber-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-amber-800">Me interesa (otra fecha)</span>
+                <span class="text-lg">📅</span>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <p id="stat-resp-interesa" class="text-3xl font-extrabold text-amber-700">0</p>
+                <span id="pct-resp-interesa" class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">0%</span>
+              </div>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-amber-100">
+              <div class="w-full bg-amber-100 rounded-full h-1.5 overflow-hidden mb-1.5">
+                <div id="bar-resp-interesa" class="bg-amber-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+              <p class="text-[10px] text-slate-400">Evento: <code>respuesta-interesa</code></p>
+            </div>
+          </div>
+
+          <!-- Opción 3: No podré asistir -->
+          <div class="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-slate-600">No podré asistir</span>
+                <span class="text-lg">👋</span>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <p id="stat-resp-no" class="text-3xl font-extrabold text-slate-700">0</p>
+                <span id="pct-resp-no" class="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">0%</span>
+              </div>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-100">
+              <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden mb-1.5">
+                <div id="bar-resp-no" class="bg-slate-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+              <p class="text-[10px] text-slate-400">Evento: <code>respuesta-no-asistire</code></p>
             </div>
           </div>
 
         </div>
+      </section>
+
+      <!-- 2. DESGLOSE DE ASISTENTES + 3. INTERESADOS Y TEMAS MÁS DEMANDADOS -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+
+        <!-- Bloque 2: Detalle de quienes asisten -->
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <span>🙋‍♂️</span>
+              <span>2. Detalle de «Sí, asistiré»</span>
+            </h3>
+
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">¿Desean dejar sus datos?</p>
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-200">
+                <span class="text-[11px] font-bold text-emerald-800 block">Sí, dejan datos</span>
+                <p id="stat-asistire-si" class="text-2xl font-extrabold text-emerald-700 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>asistire-datos-si</code></span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[11px] font-bold text-slate-700 block">No, solo aviso</span>
+                <p id="stat-asistire-no" class="text-2xl font-extrabold text-slate-800 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>asistire-datos-no</code></span>
+              </div>
+            </div>
+
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Canal elegido para confirmar inscripción</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-mapei-50/60 border border-mapei-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-mapei-900">Vía Email</span>
+                  <span>✉️</span>
+                </div>
+                <p id="stat-insc-email" class="text-2xl font-extrabold text-mapei-700 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>inscripcion-email</code></span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-emerald-900">Vía WhatsApp</span>
+                  <span>💬</span>
+                </div>
+                <p id="stat-insc-whatsapp" class="text-2xl font-extrabold text-emerald-700 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>inscripcion-whatsapp</code></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex justify-between">
+            <span>Total inscripciones con datos enviadas:</span>
+            <strong id="stat-total-inscripciones" class="text-slate-900">0</strong>
+          </div>
+        </div>
+
+        <!-- Bloque 3: Interesados para próxima convocatoria y ranking de temas -->
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <span>📌</span>
+              <span>3. Interesados (Próxima Convocatoria)</span>
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="p-3.5 rounded-xl bg-mapei-50/60 border border-mapei-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-mapei-900">Aviso por Email</span>
+                  <span>✉️</span>
+                </div>
+                <p id="stat-int-email" class="text-2xl font-extrabold text-mapei-700 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>interes-email</code></span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-emerald-900">Aviso por WhatsApp</span>
+                  <span>💬</span>
+                </div>
+                <p id="stat-int-whatsapp" class="text-2xl font-extrabold text-emerald-700 mt-1">0</p>
+                <span class="text-[10px] text-slate-400"><code>interes-whatsapp</code></span>
+              </div>
+            </div>
+
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">Temas seleccionados por interés</p>
+            <div class="space-y-2.5 text-xs">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-semibold text-slate-700">Preparación de soportes</span>
+                  <strong id="stat-tema-soportes" class="text-slate-900">0</strong>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div id="bar-tema-soportes" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-semibold text-slate-700">Humedad</span>
+                  <strong id="stat-tema-humedad" class="text-slate-900">0</strong>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div id="bar-tema-humedad" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-semibold text-slate-700">Adhesivos</span>
+                  <strong id="stat-tema-adhesivos" class="text-slate-900">0</strong>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div id="bar-tema-adhesivos" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-semibold text-slate-700">Autonivelantes</span>
+                  <strong id="stat-tema-autonivelantes" class="text-slate-900">0</strong>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div id="bar-tema-autonivelantes" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-semibold text-slate-700">Acabados para el parquet</span>
+                  <strong id="stat-tema-parquet" class="text-slate-900">0</strong>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div id="bar-tema-parquet" class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
+
+      <!-- 4. OTRAS INTERACCIONES (VISITAS, MAPA, LLAMADAS) -->
+      <section class="mb-8">
+        <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span>🌐</span>
+          <span>4. Tráfico General y Accesos Directos</span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">Visitas a la Página</span>
+              <p id="stat-visitas" class="text-2xl font-extrabold text-slate-900 mt-1">0</p>
+              <span class="text-[10px] text-slate-400">Ruta principal (<code>/</code>)</span>
+            </div>
+            <span class="text-2xl">👀</span>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">Clics en Google Maps</span>
+              <p id="stat-mapa" class="text-2xl font-extrabold text-slate-900 mt-1">0</p>
+              <span class="text-[10px] text-slate-400">Evento: <code>mapa</code></span>
+            </div>
+            <span class="text-2xl">📍</span>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">Clics en Teléfonos</span>
+              <p id="stat-llamada" class="text-2xl font-extrabold text-slate-900 mt-1">0</p>
+              <span class="text-[10px] text-slate-400">Evento: <code>llamada</code></span>
+            </div>
+            <span class="text-2xl">📞</span>
+          </div>
+        </div>
+      </section>
 
       <!-- Enlace de vuelta a la página principal -->
       <div class="text-center">
@@ -271,31 +414,16 @@
 
     <!-- Pie de Página -->
     <footer class="border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-400">
-      Panel Privado de Estadísticas · Mapei & Bariperfil Málaga
+      Panel Privado de Estadísticas · Mapei & Bariperfil Málaga · Powered by GoatCounter
     </footer>
 
   </div>
 
-  <!-- ================= LÓGICA DE ACCESO Y RECOLECCIÓN DE DATOS ================= -->
+  <!-- ================= LÓGICA DE ACCESO Y LECTURA GOATCOUNTER ================= -->
   <script>
     const VALID_PIN = "4662";
     const AUTH_SESSION_KEY = "mapei_stats_auth_ok";
-    const STATS_KEY = "mapei_bariperfil_stats_v1";
-    const BASELINES_KEY = "mapei_stats_baselines_v1";
-    const API_NAMESPACE = "mapei-bariperfil-malaga-2026";
-
-    // =========================================================================
-    // ⚙️ LÍNEA 300: VALORES BASE / RECUPERACIÓN MANUAL DE ESTADÍSTICAS
-    // Si deseas fijar o recuperar números específicos anteriores, cámbialos aquí:
-    // =========================================================================
-    const ESTADISTICAS_MANUALES = {
-      visitas: 7,          // <-- Pon aquí tus visitas anteriores
-      whatsapp_clicks: 3,  // <-- Pon aquí tus confirmaciones por WhatsApp
-      email_confirms: 2,   // <-- Pon aquí tus confirmaciones por Email
-      maps_clicks: 0,      // <-- Pon aquí tus clics en Maps
-      call_clicks: 0       // <-- Pon aquí tus llamadas
-    };
-    // =========================================================================
+    const GOATCOUNTER_BASE = "https://gemayrafa.goatcounter.com";
 
     // Comprobar si ya estaba autenticado en esta sesión
     if (sessionStorage.getItem(AUTH_SESSION_KEY) === "true") {
@@ -329,93 +457,129 @@
       location.reload();
     }
 
-    // Recupera todo el histórico eliminando cualquier filtro de reseteo previo
-    function restoreAllHistoricalStats() {
-      localStorage.removeItem(BASELINES_KEY);
-      alert("✅ Filtro de reseteo eliminado. Mostrando todos los datos históricos acumulados.");
-      loadAllStats();
+    // Consulta un contador individual de GoatCounter JSON API
+    async function fetchGoatCount(pathKey) {
+      const encoded = encodeURIComponent(pathKey);
+      const url = `${GOATCOUNTER_BASE}/counter/${encoded}.json`;
+      try {
+        const res = await fetch(url, { mode: 'cors', cache: 'no-store' });
+        if (!res.ok) {
+          return { count: 0, status: res.status };
+        }
+        const data = await res.json();
+        const raw = String(data.count_unique || data.count || '0');
+        const parsed = parseInt(raw.replace(/[^\d]/g, ''), 10) || 0;
+        return { count: parsed, status: 200 };
+      } catch (err) {
+        return { count: 0, status: 0 };
+      }
     }
 
-    // Carga de estadísticas en tiempo real
     async function loadAllStats() {
       const indicator = document.getElementById('status-indicator');
-      indicator.textContent = "🔄 Consultando datos de la nube...";
-      indicator.className = "text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full whitespace-nowrap";
+      const notice = document.getElementById('goatcounter-notice');
 
-      const local = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"call_clicks":0,"ultima_actividad":""}');
-      const endpoints = ['visitas', 'whatsapp_clicks', 'email_confirms', 'maps_clicks', 'call_clicks'];
-      let stats = {};
+      indicator.textContent = "🔄 Consultando GoatCounter...";
+      indicator.className = "text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full whitespace-nowrap";
 
-      try {
-        const promises = endpoints.map(ep =>
-          fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${ep}`, { mode: 'cors' })
-            .then(res => res.ok ? res.json() : null)
-            .catch(() => null)
-        );
+      const keys = {
+        visitas: '/',
+        respAsistire: 'respuesta-asistire',
+        respInteresa: 'respuesta-interesa',
+        respNo: 'respuesta-no-asistire',
+        asistireSi: 'asistire-datos-si',
+        asistireNo: 'asistire-datos-no',
+        inscEmail: 'inscripcion-email',
+        inscWhatsapp: 'inscripcion-whatsapp',
+        intEmail: 'interes-email',
+        intWhatsapp: 'interes-whatsapp',
+        temaSoportes: 'interes-tema-soportes',
+        temaHumedad: 'interes-tema-humedad',
+        temaAdhesivos: 'interes-tema-adhesivos',
+        temaAutonivelantes: 'interes-tema-autonivelantes',
+        temaParquet: 'interes-tema-parquet',
+        mapa: 'mapa',
+        llamada: 'llamada'
+      };
 
-        const results = await Promise.all(promises);
+      const entries = Object.entries(keys);
+      const results = await Promise.all(entries.map(([, path]) => fetchGoatCount(path)));
 
-        endpoints.forEach((ep, i) => {
-          let countFromCloud = 0;
-          if (results[i] && typeof results[i].count === 'number') {
-            countFromCloud = results[i].count;
-          }
-          const manualBase = ESTADISTICAS_MANUALES[ep] || 0;
-          const localCount = local[ep] || 0;
+      const stats = {};
+      let anySuccess = false;
+      let anyForbidden = false;
 
-          // Se toma el valor real más alto entre la nube, el almacenamiento local y los valores manuales
-          stats[ep] = Math.max(countFromCloud, localCount, manualBase);
-        });
+      entries.forEach(([k], idx) => {
+        stats[k] = results[idx].count;
+        if (results[idx].status === 200) anySuccess = true;
+        if (results[idx].status === 403) anyForbidden = true;
+      });
 
+      if (anySuccess) {
         indicator.textContent = "🟢 Datos sincronizados";
-        indicator.className = "text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap";
-      } catch (e) {
-        endpoints.forEach(ep => {
-          const manualBase = ESTADISTICAS_MANUALES[ep] || 0;
-          const localCount = local[ep] || 0;
-          stats[ep] = Math.max(localCount, manualBase);
-        });
-        indicator.textContent = "🟡 Mostrando datos locales";
-        indicator.className = "text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-300 px-3 py-1 rounded-full whitespace-nowrap";
+        indicator.className = "text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full whitespace-nowrap";
+        notice.classList.add('hidden');
+      } else if (anyForbidden) {
+        indicator.textContent = "🟡 Requiere activar permiso JSON en GoatCounter";
+        indicator.className = "text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full whitespace-nowrap";
+        notice.classList.remove('hidden');
+      } else {
+        indicator.textContent = "🟢 Conectado (esperando primeros eventos)";
+        indicator.className = "text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-300 px-2.5 py-0.5 rounded-full whitespace-nowrap";
+        notice.classList.remove('hidden');
       }
 
-      renderStats(stats, local.ultima_actividad);
+      renderStats(stats);
     }
 
-    function renderStats(s, lastActivity) {
-      document.getElementById('stat-visitas').textContent = s.visitas || 0;
-      document.getElementById('stat-whatsapp').textContent = s.whatsapp_clicks || 0;
-      document.getElementById('stat-email').textContent = s.email_confirms || 0;
-      document.getElementById('stat-maps').textContent = s.maps_clicks || 0;
-      document.getElementById('stat-calls').textContent = s.call_clicks || 0;
+    function renderStats(s) {
+      // 1. Respuestas principales
+      const totalResp = s.respAsistire + s.respInteresa + s.respNo;
+      document.getElementById('stat-total-respuestas').textContent = totalResp;
 
-      const totalConfirms = (s.whatsapp_clicks || 0) + (s.email_confirms || 0);
-      document.getElementById('stat-total-confirmaciones').textContent = `${totalConfirms} confirmaciones`;
+      document.getElementById('stat-resp-asistire').textContent = s.respAsistire;
+      document.getElementById('stat-resp-interesa').textContent = s.respInteresa;
+      document.getElementById('stat-resp-no').textContent = s.respNo;
 
-      // Canal preferido
-      if (s.whatsapp_clicks > s.email_confirms) {
-        document.getElementById('stat-preferencia-canal').textContent = "WhatsApp";
-      } else if (s.email_confirms > s.whatsapp_clicks) {
-        document.getElementById('stat-preferencia-canal').textContent = "Email";
-      } else if (totalConfirms > 0) {
-        document.getElementById('stat-preferencia-canal').textContent = "Igualdad (WhatsApp y Email)";
-      } else {
-        document.getElementById('stat-preferencia-canal').textContent = "Sin datos aún";
-      }
+      const pctAsistire = totalResp > 0 ? Math.round((s.respAsistire / totalResp) * 100) : 0;
+      const pctInteresa = totalResp > 0 ? Math.round((s.respInteresa / totalResp) * 100) : 0;
+      const pctNo = totalResp > 0 ? Math.round((s.respNo / totalResp) * 100) : 0;
 
-      // Tasa de conversión directa sobre confirmaciones reales
-      const rate = s.visitas > 0 ? Math.min(100, Math.round((totalConfirms / s.visitas) * 100)) : 0;
-      document.getElementById('stat-conversion-rate').textContent = `${rate}%`;
-      document.getElementById('stat-conversion-bar').style.width = `${rate}%`;
+      document.getElementById('pct-resp-asistire').textContent = `${pctAsistire}%`;
+      document.getElementById('pct-resp-interesa').textContent = `${pctInteresa}%`;
+      document.getElementById('pct-resp-no').textContent = `${pctNo}%`;
 
-      if (lastActivity) {
-        try {
-          const d = new Date(lastActivity);
-          document.getElementById('stat-ultima-fecha').textContent = d.toLocaleString('es-ES', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        } catch (e) {
-          document.getElementById('stat-ultima-fecha').textContent = "Reciente";
-        }
-      }
+      document.getElementById('bar-resp-asistire').style.width = `${pctAsistire}%`;
+      document.getElementById('bar-resp-interesa').style.width = `${pctInteresa}%`;
+      document.getElementById('bar-resp-no').style.width = `${pctNo}%`;
+
+      // 2. Detalle asistentes
+      document.getElementById('stat-asistire-si').textContent = s.asistireSi;
+      document.getElementById('stat-asistire-no').textContent = s.asistireNo;
+      document.getElementById('stat-insc-email').textContent = s.inscEmail;
+      document.getElementById('stat-insc-whatsapp').textContent = s.inscWhatsapp;
+      document.getElementById('stat-total-inscripciones').textContent = s.inscEmail + s.inscWhatsapp;
+
+      // 3. Interesados y temas
+      document.getElementById('stat-int-email').textContent = s.intEmail;
+      document.getElementById('stat-int-whatsapp').textContent = s.intWhatsapp;
+
+      const maxTema = Math.max(1, s.temaSoportes, s.temaHumedad, s.temaAdhesivos, s.temaAutonivelantes, s.temaParquet);
+      const setTema = (id, count) => {
+        document.getElementById(`stat-tema-${id}`).textContent = count;
+        document.getElementById(`bar-tema-${id}`).style.width = `${Math.round((count / maxTema) * 100)}%`;
+      };
+
+      setTema('soportes', s.temaSoportes);
+      setTema('humedad', s.temaHumedad);
+      setTema('adhesivos', s.temaAdhesivos);
+      setTema('autonivelantes', s.temaAutonivelantes);
+      setTema('parquet', s.temaParquet);
+
+      // 4. Tráfico general
+      document.getElementById('stat-visitas').textContent = s.visitas;
+      document.getElementById('stat-mapa').textContent = s.mapa;
+      document.getElementById('stat-llamada').textContent = s.llamada;
     }
   </script>
 </body>

@@ -58,7 +58,7 @@
   <!-- ================= CONTENIDO PRINCIPAL ================= -->
   <main class="max-w-4xl mx-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-8 md:py-10 flex-grow w-full">
     
-    <!-- ================= CONTENEDOR TIPO CARTEL DE PROGRAMA ================= -->
+    <!-- ================= CONTENEDOR CABECERA + DATOS CLAVE ================= -->
     <div class="poster-container bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200/90 overflow-hidden mb-6 sm:mb-8">
       
       <!-- CABECERA CO-BRANDING CON LOGOS OFICIALES -->
@@ -121,7 +121,7 @@
       </div>
 
       <!-- DATOS CLAVE: FECHA, HORA Y LUGAR -->
-      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-mapei-50/70 border-b border-slate-200">
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-mapei-50/70">
         
         <!-- Fecha -->
         <div class="p-4 sm:p-5 flex items-center gap-3">
@@ -131,7 +131,7 @@
           <div>
             <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-mapei-800">Fecha</span>
             <p class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">4 de Noviembre</p>
-            <p class="text-xs text-slate-500 font-medium">Jornada técnica presencial</p>
+            <p class="text-xs text-slate-500 font-medium">Miércoles · Jornada presencial</p>
           </div>
         </div>
 
@@ -162,7 +162,7 @@
           <a 
             href="https://www.google.com/maps/search/?api=1&query=Bariperfil+M%C3%A1laga+Av.+de+Jos%C3%A9+Ortega+y+Gasset+288+29006+M%C3%A1laga" 
             target="_blank" 
-            onclick="trackEvent('maps_clicks')"
+            onclick="trackEvent('mapa')"
             class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:border-mapei-600 text-mapei-700 font-bold text-xs flex items-center gap-1.5 shadow-2xs flex-shrink-0 active:scale-95 transition min-h-[40px]"
             title="Cómo llegar"
           >
@@ -175,172 +175,88 @@
 
       </div>
 
-      <!-- ORDEN DEL DÍA / PROGRAMA TÉCNICO -->
-      <div class="p-5 sm:p-7 md:p-8 bg-white">
-        
-        <div class="flex items-center justify-between mb-4 sm:mb-6">
-          <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-              <span class="w-2 h-5 sm:h-6 rounded bg-mapei-600"></span>
-              Orden del Día
-            </h2>
-            <p class="text-xs text-slate-500 font-medium mt-0.5">Contenido técnico de la jornada</p>
-          </div>
-        </div>
-
-        <!-- 4 Bloques Técnicos (2 columnas en tablet/desktop) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          
-          <!-- Bloque 1 -->
-          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs">
-            <div class="flex items-start gap-3">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
-                01
-              </div>
-              <div>
-                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  Valorar e identificar soportes
-                </h3>
-                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
-                  Tipologías de base: soleras de hormigón, recrecidos de mortero, soportes cerámicos y diagnosis previa de resistencia.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bloque 2 -->
-          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs">
-            <div class="flex items-start gap-3">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
-                02
-              </div>
-              <div>
-                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  Reparar patologías en soportes
-                </h3>
-                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
-                  Tratamiento de fisuras activas, consolidación de soleras disgregadas, regularización y morteros autonivelantes.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bloque 3 -->
-          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs">
-            <div class="flex items-start gap-3">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
-                03
-              </div>
-              <div>
-                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  Comprobar humedad y límites permitidos
-                </h3>
-                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
-                  Métodos de medición (carburo de calcio vs higrómetro digital). Tolerancias y porcentajes máximos admisibles según normativa.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bloque 4 -->
-          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-mapei-400 transition-all shadow-2xs">
-            <div class="flex items-start gap-3">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mapei-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
-                04
-              </div>
-              <div>
-                <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                  Uso y sistemas de barrera
-                </h3>
-                <p class="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
-                  Barreras de vapor epoxi/poliuretano, bloqueo de remonte capilar, imprimaciones técnicas y puentes de unión Mapei.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- CONTACTOS Y PONENTES (ORDEN: 1. Millán, 2. David, 3. J. Antonio) -->
-      <div class="p-5 sm:p-7 md:p-8 bg-slate-50 border-t border-slate-200">
-        <h3 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 sm:mb-4">
-          Ponentes y Contactos
-        </h3>
-        <!-- 1 Columna en móvil, 3 Columnas en tablet y desktop -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-          
-          <!-- 1. Millán Álvarez (Bariperfil) -->
-          <div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-900 flex-shrink-0"></span>
-                <p class="text-sm font-extrabold text-slate-900 leading-tight">Millán Álvarez</p>
-              </div>
-              <p class="text-xs font-semibold text-slate-700">Delegado Comercial · BARIPERFIL</p>
-            </div>
-            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-100">
-              <a href="tel:678054733" onclick="trackEvent('call_clicks')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
-                <span>📞</span>
-                <span>678 054 733</span>
-              </a>
-              <p class="text-[11px] text-slate-400">Almacén: 952 00 97 43</p>
-            </div>
-          </div>
-
-          <!-- 2. David Pérez (Mapei) -->
-          <div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="w-2.5 h-2.5 rounded-full bg-mapei-600 flex-shrink-0"></span>
-                <p class="text-sm font-extrabold text-slate-900 leading-tight">David Pérez</p>
-              </div>
-              <p class="text-xs font-semibold text-mapei-700">Product Specialist · MAPEI</p>
-            </div>
-            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-100">
-              <a href="tel:670275741" onclick="trackEvent('call_clicks')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
-                <span>📞</span>
-                <span>670 275 741</span>
-              </a>
-              <a href="mailto:davidperez@mapei.es" class="flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-mapei-600 truncate py-0.5">
-                <span>✉️</span>
-                <span class="truncate">davidperez@mapei.es</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- 3. J. Antonio Sánchez (Mapei) -->
-          <div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="w-2.5 h-2.5 rounded-full bg-mapei-600 flex-shrink-0"></span>
-                <p class="text-sm font-extrabold text-slate-900 leading-tight">J. Antonio Sánchez</p>
-              </div>
-              <p class="text-xs font-semibold text-mapei-700">Agente Comercial · MAPEI</p>
-            </div>
-            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-100">
-              <a href="tel:637814079" onclick="trackEvent('call_clicks')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
-                <span>📞</span>
-                <span>637 814 079</span>
-              </a>
-              <a href="mailto:jasanchez@mapei.es" class="flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-mapei-600 truncate py-0.5">
-                <span>✉️</span>
-                <span class="truncate">jasanchez@mapei.es</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
 
-    <!-- ================= CAJA DE REGISTRO INMEDIATO ================= -->
-    <div id="registro-seccion" class="max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 border-2 border-mapei-600 shadow-xl shadow-mapei-600/10">
-      
-      <!-- Estado Inicial -->
-      <div id="rsvp-card">
+    <!-- ================= BLOQUE CENTRAL INTERACTIVO (6 PANELES) ================= -->
+    <div id="bloque-central" class="max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 border-2 border-mapei-600 shadow-xl shadow-mapei-600/10">
+
+      <!-- 1. PANEL INICIO: CUENTA ATRÁS Y 3 OPCIONES -->
+      <div id="panel-inicio">
+        <div class="text-center mb-6">
+          <span id="countdown" class="inline-block px-3.5 py-1 rounded-full bg-mapei-50 border border-mapei-200 text-mapei-700 text-xs font-extrabold uppercase tracking-wider mb-3">
+            ⏳ ¡Quedan pocos días!
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-3">
+            La cuenta atrás ha empezado
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
+            El <strong>4 de noviembre</strong> nos vemos en <strong>Bariperfil Málaga</strong> para una mañana práctica entre profesionales: soportes, humedad y soluciones que funcionan de verdad en obra. Plazas limitadas.
+          </p>
+          <p class="text-base sm:text-lg font-extrabold text-mapei-800 mt-5">
+            ¿Contamos contigo?
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <button 
+            type="button"
+            onclick="selectOption('asistire')"
+            class="w-full py-3.5 px-5 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition shadow-lg shadow-mapei-600/25 flex items-center justify-center gap-2.5 cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            <span>✅ Sí, asistiré</span>
+          </button>
+
+          <button 
+            type="button"
+            onclick="selectOption('interesa')"
+            class="w-full py-3.5 px-5 rounded-xl bg-mapei-50 hover:bg-mapei-100 active:bg-mapei-200 border border-mapei-300 text-mapei-900 font-bold text-sm transition flex items-center justify-center gap-2.5 cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            <span>🗓️ Me interesa, pero no puedo ese día</span>
+          </button>
+
+          <button 
+            type="button"
+            onclick="selectOption('no-asistire')"
+            class="w-full py-3.5 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 border border-slate-200 text-slate-700 font-bold text-sm transition flex items-center justify-center gap-2.5 cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            <span>✖ No podré asistir</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. PANEL ASISTIRÉ: PREGUNTA DE CONFIRMACIÓN DE DATOS -->
+      <div id="panel-asistire" class="hidden text-center py-2">
+        <div class="w-12 h-12 bg-mapei-50 text-mapei-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+          🙌
+        </div>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight mb-2">
+          ¡Genial, nos alegra contar contigo!
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto">
+          ¿Quieres dejarnos tus datos para reservar tu plaza?
+        </p>
+
+        <div class="space-y-3">
+          <button 
+            type="button"
+            onclick="confirmAttendWithData(true)"
+            class="w-full py-3.5 px-5 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition shadow-lg shadow-mapei-600/25 cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            Sí, reservar mi plaza
+          </button>
+
+          <button 
+            type="button"
+            onclick="confirmAttendWithData(false)"
+            class="w-full py-3.5 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 font-bold text-sm transition cursor-pointer touch-manipulation min-h-[48px]"
+          >
+            No, con esto es suficiente
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. PANEL INSCRIPCIÓN: FORMULARIO ACTUAL REUTILIZADO -->
+      <div id="panel-inscripcion" class="hidden">
         <div class="text-center mb-5 sm:mb-6">
           <span class="inline-block px-3 py-1 rounded-full bg-mapei-50 text-mapei-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
             Inscripción Rápida Sin Registro
@@ -353,7 +269,6 @@
           </p>
         </div>
 
-        <!-- Formulario -->
         <form id="rsvp-form" onsubmit="handleRegistration(event)" class="space-y-3.5">
           <div>
             <label for="attendee-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
@@ -393,7 +308,6 @@
           <!-- BLOQUE DE OPCIONES (OCULTO HASTA RELLENAR NOMBRE Y TELÉFONO) -->
           <div id="confirmation-options" class="hidden space-y-4 pt-1 transition-all duration-300">
             
-            <!-- Botón Principal: Confirmar Asistencia por Email -->
             <button 
               type="submit" 
               class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition-all duration-150 shadow-lg shadow-mapei-600/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation min-h-[48px]"
@@ -404,7 +318,6 @@
               </svg>
             </button>
 
-            <!-- Separador -->
             <div class="relative my-4">
               <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
               <div class="relative flex justify-center text-xs">
@@ -412,7 +325,6 @@
               </div>
             </div>
 
-            <!-- Botón WhatsApp -->
             <div>
               <button 
                 type="button"
@@ -427,88 +339,350 @@
             </div>
 
           </div>
-
         </form>
+
+        <div class="mt-4 pt-3 border-t border-slate-100 text-center">
+          <button type="button" onclick="resetAllAndReturn()" class="text-xs text-slate-500 hover:text-slate-800 font-semibold cursor-pointer">
+            ← Volver atrás
+          </button>
+        </div>
       </div>
 
-      <!-- ================= ESTADO DE ÉXITO (LIMPIO Y DIRECTO) ================= -->
-      <div id="rsvp-success" class="hidden text-center py-4 sm:py-6">
+      <!-- 4. PANEL NO ASISTIRÉ -->
+      <div id="panel-no-asistire" class="hidden text-center py-4">
+        <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center mx-auto mb-3.5 text-2xl font-bold">
+          🙏
+        </div>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
+          Gracias por responder
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
+          Tu respuesta nos ayuda a organizar mejor la jornada. ¡Esperamos verte en próximas actividades!
+        </p>
+        <button 
+          type="button"
+          onclick="resetAllAndReturn()" 
+          class="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 font-bold text-xs transition cursor-pointer touch-manipulation min-h-[44px]"
+        >
+          Cerrar
+        </button>
+      </div>
+
+      <!-- 5. PANEL ME INTERESA PERO NO PUEDO -->
+      <div id="panel-interesa" class="hidden">
+        <div class="text-center mb-5">
+          <span class="inline-block px-3 py-1 rounded-full bg-mapei-50 text-mapei-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
+            Próximas Convocatorias
+          </span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+            ¡Gracias! Nos alegra saber que te interesa
+          </h2>
+          <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+            Organizaremos nuevas sesiones técnicas. Déjanos tus datos y te avisaremos de la próxima convocatoria.
+          </p>
+        </div>
+
+        <form id="interest-form" onsubmit="handleInterestEmail(event)" class="space-y-3.5">
+          <div>
+            <label for="interest-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Nombre y Apellidos o Empresa *
+            </label>
+            <input 
+              type="text" 
+              id="interest-name" 
+              required
+              oninput="checkInterestFields()"
+              placeholder="Ej. Manuel García - Pavimentos Málaga" 
+              class="w-full px-3.5 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-mapei-600 focus:border-mapei-600 text-sm transition bg-white"
+            >
+          </div>
+
+          <div>
+            <label for="interest-contact" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Teléfono o Correo de contacto *
+            </label>
+            <input 
+              type="text" 
+              id="interest-contact" 
+              required
+              oninput="checkInterestFields()"
+              placeholder="Ej. 600 123 456 o info@tuempresa.es" 
+              class="w-full px-3.5 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-mapei-600 focus:border-mapei-600 text-sm transition bg-white"
+            >
+          </div>
+
+          <!-- Casillas de temas de interés -->
+          <div class="pt-1">
+            <p class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              Estoy interesado especialmente en:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-mapei-50/50 hover:border-mapei-300 cursor-pointer transition text-xs font-semibold text-slate-700">
+                <input type="checkbox" name="interest-topic" value="Preparación de soportes" data-slug="soportes" class="w-4 h-4 accent-mapei-600 rounded">
+                <span>Preparación de soportes</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-mapei-50/50 hover:border-mapei-300 cursor-pointer transition text-xs font-semibold text-slate-700">
+                <input type="checkbox" name="interest-topic" value="Humedad" data-slug="humedad" class="w-4 h-4 accent-mapei-600 rounded">
+                <span>Humedad</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-mapei-50/50 hover:border-mapei-300 cursor-pointer transition text-xs font-semibold text-slate-700">
+                <input type="checkbox" name="interest-topic" value="Adhesivos" data-slug="adhesivos" class="w-4 h-4 accent-mapei-600 rounded">
+                <span>Adhesivos</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-mapei-50/50 hover:border-mapei-300 cursor-pointer transition text-xs font-semibold text-slate-700">
+                <input type="checkbox" name="interest-topic" value="Autonivelantes" data-slug="autonivelantes" class="w-4 h-4 accent-mapei-600 rounded">
+                <span>Autonivelantes</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-mapei-50/50 hover:border-mapei-300 cursor-pointer transition text-xs font-semibold text-slate-700 sm:col-span-2">
+                <input type="checkbox" name="interest-topic" value="Acabados para el parquet" data-slug="parquet" class="w-4 h-4 accent-mapei-600 rounded">
+                <span>Acabados para el parquet</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Aviso antes de rellenar nombre y contacto -->
+          <div id="interest-fields-hint" class="pt-1 text-center">
+            <p class="text-xs text-slate-400 font-medium bg-slate-50 border border-dashed border-slate-200 py-2.5 px-3 rounded-xl">
+              ✍️ Rellena tu nombre y contacto para activar las opciones de aviso
+            </p>
+          </div>
+
+          <!-- Opciones de envío (ocultas hasta rellenar nombre y contacto) -->
+          <div id="interest-options" class="hidden space-y-4 pt-1 transition-all duration-300">
+            <button 
+              type="submit" 
+              class="w-full py-3.5 px-6 rounded-xl bg-mapei-600 hover:bg-mapei-700 active:bg-mapei-800 text-white font-bold text-sm transition-all duration-150 shadow-lg shadow-mapei-600/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation min-h-[48px]"
+            >
+              <span>Avísadme por Email</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </button>
+
+            <div class="relative my-4">
+              <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+              <div class="relative flex justify-center text-xs">
+                <span class="bg-white px-3 text-slate-500 font-semibold">Si prefieres lo puedes hacer por whatsapp</span>
+              </div>
+            </div>
+
+            <div>
+              <button 
+                type="button"
+                onclick="handleInterestWhatsApp()"
+                class="w-full py-3.5 px-4 rounded-xl border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 font-bold text-sm flex items-center justify-center gap-2.5 transition min-h-[48px] touch-manipulation shadow-2xs cursor-pointer"
+              >
+                <svg class="w-5 h-5 fill-emerald-600 flex-shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span>Avísadme por WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="mt-4 pt-3 border-t border-slate-100 text-center">
+          <button type="button" onclick="resetAllAndReturn()" class="text-xs text-slate-500 hover:text-slate-800 font-semibold cursor-pointer">
+            ← Volver atrás
+          </button>
+        </div>
+      </div>
+
+      <!-- 6. PANEL FINAL COMÚN A TODOS LOS FLUJOS -->
+      <div id="panel-final" class="hidden text-center py-4 sm:py-6">
         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3.5 text-2xl sm:text-3xl font-bold shadow-xs">
           ✓
         </div>
-        <h3 id="success-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
-          ¡Plaza Reservada con Éxito!
+        <h3 id="final-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
+          ¡Perfecto!
         </h3>
-        <p id="success-desc" class="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
-          Hemos registrado tu solicitud. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en las instalaciones de Bariperfil Málaga.
+        <p id="final-desc" class="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
+          Te esperamos el <strong>miércoles 4 de noviembre a las 9:00 h</strong> en Bariperfil Málaga.
         </p>
 
-        <!-- Botones de Acción: Cerrar y volver + Inscribir a otro asistente -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3 border-t border-slate-100">
+        <div class="pt-3 border-t border-slate-100">
           <button 
             type="button"
-            onclick="resetRegistration()" 
+            onclick="resetAllAndReturn()" 
             class="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 font-bold text-xs transition cursor-pointer touch-manipulation min-h-[44px]"
           >
             Cerrar y volver
           </button>
-          
-          <button 
-            type="button"
-            onclick="resetRegistration()" 
-            class="w-full sm:w-auto py-2.5 px-4 text-xs text-mapei-700 hover:underline font-bold transition cursor-pointer"
-          >
-            ← Inscribir a otro asistente
-          </button>
         </div>
-
       </div>
 
     </div>
 
   </main>
 
-  <!-- ================= PIE DE PÁGINA ================= -->
-  <footer class="border-t border-slate-200 bg-white py-5 sm:py-6">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
-      <p>© 2026 MAPEI Spain S.A. & Bariperfil Málaga.</p>
-      <div class="flex items-center gap-3 font-semibold text-slate-600">
-        <a href="https://www.mapei.com/es" target="_blank" class="hover:text-mapei-600">mapei.es</a>
-        <span>·</span>
-        <a href="https://bariperfil.com" target="_blank" class="hover:text-mapei-600">bariperfil.com</a>
+  <!-- ================= PIE DE PÁGINA CON PONENTES Y CONTACTOS ================= -->
+  <footer class="border-t border-slate-200 bg-white pt-6 sm:pt-8 pb-5 sm:pb-6 mt-6">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+      
+      <!-- Tarjetas de Contacto trasladadas al pie -->
+      <div class="mb-6">
+        <h3 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 sm:mb-4">
+          Ponentes y Contactos
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
+          
+          <!-- 1. Millán Álvarez (Bariperfil) -->
+          <div class="bg-slate-50/70 p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-900 flex-shrink-0"></span>
+                <p class="text-sm font-extrabold text-slate-900 leading-tight">Millán Álvarez</p>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Delegado Comercial · BARIPERFIL</p>
+            </div>
+            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-200/70">
+              <a href="tel:678054733" onclick="trackEvent('llamada')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
+                <span>📞</span>
+                <span>678 054 733</span>
+              </a>
+              <p class="text-[11px] text-slate-400">Almacén: 952 00 97 43</p>
+            </div>
+          </div>
+
+          <!-- 2. David Pérez (Mapei) -->
+          <div class="bg-slate-50/70 p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-2.5 h-2.5 rounded-full bg-mapei-600 flex-shrink-0"></span>
+                <p class="text-sm font-extrabold text-slate-900 leading-tight">David Pérez</p>
+              </div>
+              <p class="text-xs font-semibold text-mapei-700">Product Specialist · MAPEI</p>
+            </div>
+            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-200/70">
+              <a href="tel:670275741" onclick="trackEvent('llamada')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
+                <span>📞</span>
+                <span>670 275 741</span>
+              </a>
+              <a href="mailto:davidperez@mapei.es" class="flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-mapei-600 truncate py-0.5">
+                <span>✉️</span>
+                <span class="truncate">davidperez@mapei.es</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. J. Antonio Sánchez (Mapei) -->
+          <div class="bg-slate-50/70 p-4 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-2.5 h-2.5 rounded-full bg-mapei-600 flex-shrink-0"></span>
+                <p class="text-sm font-extrabold text-slate-900 leading-tight">J. Antonio Sánchez</p>
+              </div>
+              <p class="text-xs font-semibold text-mapei-700">Agente Comercial · MAPEI</p>
+            </div>
+            <div class="mt-3 text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-200/70">
+              <a href="tel:637814079" onclick="trackEvent('llamada')" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-mapei-600 py-1">
+                <span>📞</span>
+                <span>637 814 079</span>
+              </a>
+              <a href="mailto:jasanchez@mapei.es" class="flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-mapei-600 truncate py-0.5">
+                <span>✉️</span>
+                <span class="truncate">jasanchez@mapei.es</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      <!-- Copyright y enlaces -->
+      <div class="border-t border-slate-200 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
+        <p>© 2026 MAPEI Spain S.A. & Bariperfil Málaga.</p>
+        <div class="flex items-center gap-3 font-semibold text-slate-600">
+          <a href="https://www.mapei.com/es" target="_blank" class="hover:text-mapei-600">mapei.es</a>
+          <span>·</span>
+          <a href="https://bariperfil.com" target="_blank" class="hover:text-mapei-600">bariperfil.com</a>
+        </div>
+      </div>
+
     </div>
   </footer>
 
-  <!-- ================= LÓGICA DE INTERACCIÓN Y ANALÍTICA ANÓNIMA ================= -->
+  <!-- ================= LÓGICA DE INTERACCIÓN Y EVENTOS GOATCOUNTER ================= -->
   <script>
-    // Contador global anónimo y prevención de duplicados por recarga (refresh)
-    const STATS_KEY = "mapei_bariperfil_stats_v1";
-    const API_NAMESPACE = "mapei-bariperfil-malaga-2026";
+    const PANELS = [
+      'panel-inicio',
+      'panel-asistire',
+      'panel-inscripcion',
+      'panel-no-asistire',
+      'panel-interesa',
+      'panel-final'
+    ];
 
-    function trackEvent(eventType) {
+    function trackEvent(name) {
       try {
-        let stats = JSON.parse(localStorage.getItem(STATS_KEY) || '{"visitas":0,"whatsapp_clicks":0,"email_confirms":0,"maps_clicks":0,"call_clicks":0,"ultima_actividad":""}');
-        stats[eventType] = (stats[eventType] || 0) + 1;
-        stats.ultima_actividad = new Date().toISOString();
-        localStorage.setItem(STATS_KEY, JSON.stringify(stats));
-
-        // Registro anónimo en la nube
-        fetch(`https://api.counterapi.dev/v1/${API_NAMESPACE}/${eventType}/up`, { mode: 'cors' }).catch(() => {});
-      } catch (err) {
-        console.warn("Telemetry notice:", err);
-      }
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: name, title: name, event: true });
+        }
+      } catch (e) {}
     }
 
-    // Registrar visita única por sesión
-    (function initVisitTracking() {
-      if (!sessionStorage.getItem('visited_session_mapei')) {
-        sessionStorage.setItem('visited_session_mapei', 'true');
-        trackEvent('visitas');
+    function showPanel(panelId) {
+      PANELS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (id === panelId) {
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // Cálculo automático de cuenta atrás hacia el 4 de noviembre de 2026
+    (function updateCountdown() {
+      const badge = document.getElementById('countdown');
+      if (!badge) return;
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const eventDate = new Date(2026, 10, 4); // Mes 10 = Noviembre
+      const diffDays = Math.round((eventDate - today) / (1000 * 60 * 60 * 24));
+
+      if (diffDays > 1) {
+        badge.textContent = `⏳ ¡Quedan ${diffDays} días!`;
+      } else if (diffDays === 1) {
+        badge.textContent = "⏳ ¡Es mañana!";
+      } else if (diffDays === 0) {
+        badge.textContent = "🎉 ¡Es hoy!";
+      } else {
+        badge.classList.add('hidden');
       }
     })();
 
-    // Comprobar si ambos campos están rellenos para mostrar los botones de confirmación
+    // Elección entre las 3 respuestas principales
+    function selectOption(choice) {
+      if (choice === 'asistire') {
+        trackEvent('respuesta-asistire');
+        showPanel('panel-asistire');
+      } else if (choice === 'interesa') {
+        trackEvent('respuesta-interesa');
+        showPanel('panel-interesa');
+      } else if (choice === 'no-asistire') {
+        trackEvent('respuesta-no-asistire');
+        showPanel('panel-no-asistire');
+      }
+    }
+
+    // Sub-elección en Asistiré: dejar datos (sí / no)
+    function confirmAttendWithData(wantsToLeaveData) {
+      if (wantsToLeaveData) {
+        trackEvent('asistire-datos-si');
+        showPanel('panel-inscripcion');
+      } else {
+        trackEvent('asistire-datos-no');
+        showFinalScreen(
+          "¡Perfecto!",
+          "Te esperamos el <strong>miércoles 4 de noviembre a las 9:00 h</strong> en Bariperfil Málaga."
+        );
+      }
+    }
+
+    // Validación de campos del formulario de inscripción
     function checkFormFields() {
       const nameInput = document.getElementById('attendee-name');
       const contactInput = document.getElementById('attendee-contact');
@@ -527,13 +701,13 @@
       }
     }
 
-    // Gestión del formulario y generación del correo
+    // Envío de inscripción por Email
     function handleRegistration(e) {
       e.preventDefault();
       const name = document.getElementById('attendee-name').value.trim();
       const contact = document.getElementById('attendee-contact').value.trim();
 
-      trackEvent('email_confirms');
+      trackEvent('inscripcion-email');
 
       const recipient = "malaga@bariperfil.es";
       const subject = encodeURIComponent("Confirmación de Asistencia - Jornada Técnica Mapei en Bariperfil (4 Nov)");
@@ -544,16 +718,15 @@
         `Saludos.`
       );
 
-      const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 
-      // Lanzar el cliente de correo
-      window.location.href = mailtoUrl;
-
-      // Mostrar pantalla de confirmación limpia
-      showSuccessScreen("email");
+      showFinalScreen(
+        "¡Correo Preparado y Plaza Reservada!",
+        "Hemos preparado tu mensaje para <strong>malaga@bariperfil.es</strong>. Te esperamos el <strong>miércoles 4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga."
+      );
     }
 
-    // Envío por WhatsApp e inmediata apertura de pantalla de confirmación
+    // Envío de inscripción por WhatsApp
     function sendWhatsAppConfirmation() {
       const nameInput = document.getElementById('attendee-name');
       const contactInput = document.getElementById('attendee-contact');
@@ -561,7 +734,7 @@
       const name = nameInput ? nameInput.value.trim() : "";
       const contact = contactInput ? contactInput.value.trim() : "";
 
-      trackEvent('whatsapp_clicks');
+      trackEvent('inscripcion-whatsapp');
 
       let message = "Hola, confirmo mi asistencia a la Jornada Técnica Mapei en Bariperfil Málaga el 4 de noviembre a las 9:00 h.";
       if (name || contact) {
@@ -571,36 +744,117 @@
       }
 
       const waUrl = `https://wa.me/34678054733?text=${encodeURIComponent(message)}`;
-      
-      // Abrir WhatsApp en nueva pestaña
       window.open(waUrl, '_blank');
 
-      // Mostrar pantalla de confirmación limpia
-      showSuccessScreen("whatsapp");
+      showFinalScreen(
+        "¡WhatsApp Abierto y Plaza Reservada!",
+        "Se ha abierto tu chat con Millán Álvarez (Bariperfil). Te esperamos el <strong>miércoles 4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga."
+      );
     }
 
-    function showSuccessScreen(channel) {
-      const titleEl = document.getElementById('success-title');
-      const descEl = document.getElementById('success-desc');
+    // Validación de campos del formulario "Me interesa"
+    function checkInterestFields() {
+      const nameInput = document.getElementById('interest-name');
+      const contactInput = document.getElementById('interest-contact');
+      const optionsBlock = document.getElementById('interest-options');
+      const hintBlock = document.getElementById('interest-fields-hint');
 
-      if (channel === 'whatsapp') {
-        titleEl.textContent = "¡WhatsApp Abierto y Plaza Reservada!";
-        descEl.innerHTML = "Se ha abierto tu chat con Millán Álvarez (Bariperfil). Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga.";
+      const name = nameInput ? nameInput.value.trim() : "";
+      const contact = contactInput ? contactInput.value.trim() : "";
+
+      if (name.length > 0 && contact.length > 0) {
+        optionsBlock.classList.remove('hidden');
+        if (hintBlock) hintBlock.classList.add('hidden');
       } else {
-        titleEl.textContent = "¡Correo Preparado y Plaza Reservada!";
-        descEl.innerHTML = "Hemos preparado tu mensaje para <strong>malaga@bariperfil.es</strong>. Te esperamos el <strong>4 de noviembre a las 09:00 h</strong> en Bariperfil Málaga.";
+        optionsBlock.classList.add('hidden');
+        if (hintBlock) hintBlock.classList.remove('hidden');
       }
-
-      document.getElementById('rsvp-card').classList.add('hidden');
-      document.getElementById('rsvp-success').classList.remove('hidden');
     }
 
-    function resetRegistration() {
-      document.getElementById('rsvp-form').reset();
+    // Extraer temas seleccionados y registrar eventos en GoatCounter
+    function getSelectedTopicsAndTrack() {
+      const checkboxes = document.querySelectorAll('input[name="interest-topic"]:checked');
+      const labels = [];
+      checkboxes.forEach(cb => {
+        labels.push(cb.value);
+        const slug = cb.getAttribute('data-slug');
+        if (slug) {
+          trackEvent('interes-tema-' + slug);
+        }
+      });
+      return labels.length > 0 ? labels.join(', ') : "Sin especificar";
+    }
+
+    function buildInterestMessage(name, contact, topicsText) {
+      return (
+        `Hola,\n\n` +
+        `Me interesa la jornada técnica pero no puedo asistir el 4 de noviembre. Me gustaría que me avisarais de la próxima convocatoria.\n\n` +
+        `• Nombre / Empresa: ${name}\n` +
+        `• Contacto: ${contact}\n` +
+        `• Temas de especial interés: ${topicsText}\n\n` +
+        `Saludos.`
+      );
+    }
+
+    // Envío de "Me interesa" por Email
+    function handleInterestEmail(e) {
+      e.preventDefault();
+      const name = document.getElementById('interest-name').value.trim();
+      const contact = document.getElementById('interest-contact').value.trim();
+      const topicsText = getSelectedTopicsAndTrack();
+
+      trackEvent('interes-email');
+
+      const recipient = "malaga@bariperfil.es";
+      const subject = encodeURIComponent("Interés en próximas jornadas técnicas – Mapei / Bariperfil Málaga");
+      const body = encodeURIComponent(buildInterestMessage(name, contact, topicsText));
+
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+      showFinalScreen(
+        "¡Gracias!",
+        "Te avisaremos en cuanto haya nueva convocatoria."
+      );
+    }
+
+    // Envío de "Me interesa" por WhatsApp
+    function handleInterestWhatsApp() {
+      const name = document.getElementById('interest-name').value.trim();
+      const contact = document.getElementById('interest-contact').value.trim();
+      const topicsText = getSelectedTopicsAndTrack();
+
+      trackEvent('interes-whatsapp');
+
+      const message = buildInterestMessage(name, contact, topicsText);
+      const waUrl = `https://wa.me/34678054733?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+
+      showFinalScreen(
+        "¡Gracias!",
+        "Te avisaremos en cuanto haya nueva convocatoria."
+      );
+    }
+
+    function showFinalScreen(title, descHtml) {
+      document.getElementById('final-title').textContent = title;
+      document.getElementById('final-desc').innerHTML = descHtml;
+      showPanel('panel-final');
+    }
+
+    function resetAllAndReturn() {
+      const rsvpForm = document.getElementById('rsvp-form');
+      if (rsvpForm) rsvpForm.reset();
+      const interestForm = document.getElementById('interest-form');
+      if (interestForm) interestForm.reset();
+
       checkFormFields();
-      document.getElementById('rsvp-success').classList.add('hidden');
-      document.getElementById('rsvp-card').classList.remove('hidden');
+      checkInterestFields();
+      showPanel('panel-inicio');
     }
   </script>
+
+  <!-- Script oficial de analítica GoatCounter -->
+  <script data-goatcounter="https://gemayrafa.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
